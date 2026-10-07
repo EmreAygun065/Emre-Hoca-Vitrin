@@ -9,7 +9,7 @@ Birkaç dakika sonra site şu adreste açılır: https://emreaygun065.github.io/
 ## Satışı açmak
 `js/ayarlar.js` dosyasını doldurun:
 - `paketler.uslu.shopier`: Shopier'daki ürün sayfasının adresi (doluysa "Satın al" düğmesi çalışır).
-- `paketler.uslu.fiyat`: Fiyat, yalnızca rakam (ör. `'149'`).
+- `paketler.uslu.fiyat`: Fiyat, yalnızca rakam (ör. `'149'`). Kareköklü İfadeler paketi için aynı alanlar `paketler.karekok` altındadır.
 - `whatsapp`: Ülke koduyla numara (ör. `'905551234567'`); "Demo talep et" ve "Haber ver" düğmeleri buraya gider.
 - `eposta`: İletişim e-postası.
 
