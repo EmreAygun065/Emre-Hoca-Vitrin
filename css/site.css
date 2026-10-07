@@ -65,7 +65,9 @@ a { color: inherit; }
 .ust nav a { text-decoration: none; font-size: .95rem; color: var(--muted); padding: .4rem .7rem; border-radius: 8px; }
 .ust nav a:hover { color: var(--ink); background: var(--bg-alt); }
 .tema { font: inherit; font-size: .9rem; background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 8px; padding: .3rem .55rem; cursor: pointer; }
-@media (max-width: 760px) { .ust nav a:not(.dugme) { display: none; } }
+.ust nav a.dugme { color: var(--accent-ink); white-space: nowrap; margin-left: .3rem; }
+.ust nav a.dugme:hover { background: var(--accent); color: var(--accent-ink); }
+@media (max-width: 760px) { .ust nav a:not(.dugme) { display: none; } .ust nav .genis { display: none; } }
 
 /* Düğmeler */
 .dugme {

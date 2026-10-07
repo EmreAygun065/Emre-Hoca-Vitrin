@@ -13,9 +13,14 @@ Birkaç dakika sonra site şu adreste açılır: https://emreaygun065.github.io/
 - `whatsapp`: Ülke koduyla numara (ör. `'905551234567'`); "Demo talep et" ve "Haber ver" düğmeleri buraya gider.
 - `eposta`: İletişim e-postası.
 
+## Etkileşimli sürüm (erişim kodlu)
+- Öğrenci `uygulama/` sayfasında kodunu girer; testi çözer, sonucunu ve çözümleri görür, ilerleme raporunu takip eder (ilerleme kendi cihazında saklanır).
+- Kodlar gizli `benim-projem` deposunda üretilir: `node urun/erisim/erisim.cjs uret uslu 10 "not"`, iptal için `iptal EH-XXXX-XXXX`, ardından `yayinla` ve bu deponun gönderilmesi.
+
 ## Dosyalar
 - `index.html`: sayfa
 - `css/site.css`: tasarım (açık/koyu tema)
 - `js/site.js`: düğmeler ve ücretsiz örnek soru çözücü
 - `js/ornekler.js`: vitrindeki 4 ücretsiz örnek soru
 - `js/ayarlar.js`: satış ve iletişim bilgileri
+- `uygulama/`: erişim kodlu etkileşimli soru çözme uygulaması (`veri/` şifreli içerik, elle düzenlenmez)
