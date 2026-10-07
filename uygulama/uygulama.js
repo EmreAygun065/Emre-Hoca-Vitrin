@@ -68,10 +68,13 @@
   }
 
   // ---------- İlerleme (bu cihazda) ----------
-  const ilerleme = p => depo.al('eh-ilerleme', {})[p] || {};
+  // İlerleme üniteye göre tutulur: Yarış paketinden Tam pakete yükselten öğrencinin çözdükleri korunur
+  // (soru numaraları iki pakette aynıdır).
+  const uniteOf = p => (KATALOG && KATALOG[p] && KATALOG[p].unite) || String(p).replace(/-yaris$/, '');
+  const ilerleme = p => depo.al('eh-ilerleme', {})[uniteOf(p)] || {};
   function kaydet(p, no, dogru) {
-    const t = depo.al('eh-ilerleme', {});
-    const x = ((t[p] = t[p] || {})[no] = t[p][no] || { d: 0, y: 0 });
+    const t = depo.al('eh-ilerleme', {}), u = uniteOf(p);
+    const x = ((t[u] = t[u] || {})[no] = t[u][no] || { d: 0, y: 0 });
     dogru ? x.d++ : x.y++;
     x.son = dogru ? 'd' : 'y';
     depo.yaz('eh-ilerleme', t);
@@ -174,8 +177,11 @@
   async function paketlerim(dusen) {
     const acik = Object.keys(ANAHTAR);
     const kartlar = [];
-    for (const p of Object.keys(KATALOG)) {
-      const k = KATALOG[p];
+    // Her ünite tek kartta: tam paket açıksa o, yoksa Yarış paketi açıksa o, hiçbiri yoksa kilitli kart
+    const uniteler = Object.keys(KATALOG).filter(p => (KATALOG[p].seviye || 'tam') === 'tam');
+    for (const u of uniteler) {
+      const p = acik.includes(u) ? u : acik.includes(u + '-yaris') ? u + '-yaris' : u;
+      const k = KATALOG[p], yaris = k.seviye === 'yaris';
       if (!acik.includes(p)) {
         kartlar.push(`<article class="kutu paket-kart"><span class="kucuk-yazi">🔒 Kilitli</span><h2>${k.ad}</h2><p class="kucuk-yazi">${k.soruSayisi} soru</p><div class="eylemler"><a class="dugme kucuk ikincil" href="../#paketler">Paketi incele</a></div></article>`);
         continue;
@@ -185,6 +191,7 @@
         <span class="kucuk-yazi">✓ Erişiminiz var</span><h2>${P.ad}</h2>
         <p class="kucuk-yazi">${o.cozulen} / ${P.sorular.length} soru çözüldü${o.cozulen ? ` · başarı %${o.oran}` : ''}</p>${cubuk(Math.round(o.cozulen / P.sorular.length * 100))}
         <div class="eylemler"><a class="dugme kucuk" href="#/p/${p}/test">Test çöz</a><a class="dugme kucuk ikincil" href="#/p/${p}/calis/tum/0">Çalış</a><a class="dugme kucuk ikincil" href="#/p/${p}/ilerleme">İlerlemem</a></div>
+        ${yaris ? `<p class="bilgi-not">Bu bir <b>Yarış Paketi</b>dir. <a href="../#paketler">Tam Pakete yükseltin</a>: aynı kodla ${(KATALOG[uniteOf(p)] || {}).soruSayisi || 400} sorunun hepsi açılır, ilerlemeniz korunur.</p>` : ''}
       </article>`);
     }
     uyg.innerHTML = `<h1>Paketlerim</h1><p class="alt-baslik">Bir paket seçin: sınav gibi <b>test çözün</b>, ya da soru soru <b>çalışın</b>.</p>
@@ -281,7 +288,7 @@
     const q = liste[i];
     let adim = 0, ipucu = 0, isaretlendi = false;
     uyg.innerHTML = `<a class="geri" href="#/">← Paketlerim</a><h1>${P.ad} · Çalış</h1>
-      <div class="sekmeler" role="tablist">${['tum', ...TURLER.map(t => t[0]), 'cozulmemis', 'yanlis'].map(z => `<a class="secenek" style="padding:.35rem .9rem;border-radius:999px;display:inline-block" href="#/p/${p}/calis/${encodeURIComponent(z)}/0" ${z === f ? 'aria-current="true"' : ''}>${z === f ? '<b style="display:inline">' + filtreAdi(z, P) + '</b>' : filtreAdi(z, P)}</a>`).join('')}</div>
+      <div class="sekmeler" role="tablist">${['tum', ...TURLER.map(t => t[0]).filter(t => P.sorular.some(q => turOf(q) === t)), 'cozulmemis', 'yanlis'].filter((z, _, a) => !(z !== 'tum' && TURLER.some(t => t[0] === z) && a.filter(x => TURLER.some(t => t[0] === x)).length === 1)).map(z => `<a class="secenek" style="padding:.35rem .9rem;border-radius:999px;display:inline-block" href="#/p/${p}/calis/${encodeURIComponent(z)}/0" ${z === f ? 'aria-current="true"' : ''}>${z === f ? '<b style="display:inline">' + filtreAdi(z, P) + '</b>' : filtreAdi(z, P)}</a>`).join('')}</div>
       <label class="kazanim-sec">Konu: <select id="konuSec"><option value="">Tüm konular</option>${[...new Set(P.sorular.map(x => x.kazanim))].sort().map(k => `<option value="k~${k}" ${f === 'k~' + k ? 'selected' : ''}>${P.kazanimlar[k].konu} (${k})</option>`).join('')}</select></label>
       <div class="soru-kutu"><div>${soruBas(q, i + 1, P)}
         <div class="opts ${q.long ? 'long' : ''}">${q.opts.map((o, j) => `<button type="button" class="opt" data-j="${j}"><b>${HARF[j]})</b>${o}</button>`).join('')}</div>
@@ -344,7 +351,7 @@
         <a class="dugme kucuk ikincil" href="#/p/${p}/test">Yeni test</a>
         ${o.cozulen ? '<button class="dugme kucuk ikincil" id="sifirla" type="button">İlerlemeyi sıfırla</button>' : ''}</div>`;
     const s = document.getElementById('sifirla');
-    if (s) s.onclick = () => { if (!confirm('Bu paketteki ilerlemeniz silinecek. Emin misiniz?')) return; const t = depo.al('eh-ilerleme', {}); delete t[p]; depo.yaz('eh-ilerleme', t); rapor(p, P); };
+    if (s) s.onclick = () => { if (!confirm('Bu paketteki ilerlemeniz silinecek. Emin misiniz?')) return; const t = depo.al('eh-ilerleme', {}); delete t[uniteOf(p)]; depo.yaz('eh-ilerleme', t); rapor(p, P); };
     void il;
   }
 

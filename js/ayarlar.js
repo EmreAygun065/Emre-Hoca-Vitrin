@@ -3,11 +3,14 @@ window.AYARLAR = {
   paketler: {
     // shopier: Shopier'daki ürün sayfasının adresi. Boşsa düğme "Çok yakında" olarak görünür.
     // fiyat: Yalnızca rakam, ör. '149'. Boşsa "Fiyat yakında" yazar.
-    carpan: { shopier: '', fiyat: '' },
-    uslu: { shopier: '', fiyat: '' },
-    karekok: { shopier: '', fiyat: '' },
-    ikili: { shopier: '', fiyat: '' }
+    // Her ünite: -yaris (Yarış Paketi, 60 soru), adsız (Tam Paket, 400 soru), -yukselt (Yarış → Tam yükseltme farkı)
+    carpan: { shopier: '', fiyat: '' }, 'carpan-yaris': { shopier: '', fiyat: '' }, 'carpan-yukselt': { shopier: '', fiyat: '' },
+    uslu: { shopier: '', fiyat: '' }, 'uslu-yaris': { shopier: '', fiyat: '' }, 'uslu-yukselt': { shopier: '', fiyat: '' },
+    karekok: { shopier: '', fiyat: '' }, 'karekok-yaris': { shopier: '', fiyat: '' }, 'karekok-yukselt': { shopier: '', fiyat: '' },
+    // 1. Dönem Paketi: üç ünitenin Tam Paketi
+    donem1: { shopier: '', fiyat: '' }
   },
+
   // WhatsApp numarası, ülke koduyla ve boşluksuz: ör. '905551234567'. Boşsa WhatsApp düğmesi gizlenir.
   whatsapp: '',
   // Sitede yazı olarak görünecek telefon (boşsa gösterilmez).

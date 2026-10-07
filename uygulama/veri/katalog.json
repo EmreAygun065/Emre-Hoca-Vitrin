@@ -1,14 +1,38 @@
 {
+ "carpan": {
+  "ad": "Çarpanlar ve Katlar",
+  "soruSayisi": 400,
+  "unite": "carpan",
+  "seviye": "tam"
+ },
  "uslu": {
   "ad": "Üslü İfadeler",
-  "soruSayisi": 400
+  "soruSayisi": 400,
+  "unite": "uslu",
+  "seviye": "tam"
  },
  "karekok": {
   "ad": "Kareköklü İfadeler",
-  "soruSayisi": 400
+  "soruSayisi": 400,
+  "unite": "karekok",
+  "seviye": "tam"
  },
- "carpan": {
-  "ad": "Çarpanlar ve Katlar",
-  "soruSayisi": 400
+ "carpan-yaris": {
+  "ad": "Çarpanlar ve Katlar · Yarış",
+  "soruSayisi": 60,
+  "unite": "carpan",
+  "seviye": "yaris"
+ },
+ "uslu-yaris": {
+  "ad": "Üslü İfadeler · Yarış",
+  "soruSayisi": 60,
+  "unite": "uslu",
+  "seviye": "yaris"
+ },
+ "karekok-yaris": {
+  "ad": "Kareköklü İfadeler · Yarış",
+  "soruSayisi": 60,
+  "unite": "karekok",
+  "seviye": "yaris"
  }
 }

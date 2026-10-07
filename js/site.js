@@ -41,7 +41,7 @@
     const dugme = kart.querySelector('[data-satin-al]');
     if (p.shopier) {
       dugme.href = p.shopier; dugme.target = '_blank'; dugme.rel = 'noopener';
-      dugme.removeAttribute('aria-disabled'); dugme.textContent = 'Satın al';
+      dugme.removeAttribute('aria-disabled'); if (!dugme.hasAttribute('data-sabit')) dugme.textContent = 'Satın al';
     } else {
       dugme.addEventListener('click', e => e.preventDefault());
     }
