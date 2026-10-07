@@ -138,7 +138,7 @@
     for (const p of Object.keys(KATALOG)) {
       const k = KATALOG[p];
       if (!acik.includes(p)) {
-        kartlar.push(`<article class="kutu paket-kart"><span class="kucuk-yazi">🔒 Kilitli</span><h2>${k.ad}</h2><p class="kucuk-yazi">${k.soruSayisi} görselli yeni nesil soru</p><div class="eylemler"><a class="dugme kucuk ikincil" href="../#paketler">Paketi incele</a></div></article>`);
+        kartlar.push(`<article class="kutu paket-kart"><span class="kucuk-yazi">🔒 Kilitli</span><h2>${k.ad}</h2><p class="kucuk-yazi">${k.soruSayisi} görselli soru</p><div class="eylemler"><a class="dugme kucuk ikincil" href="../#paketler">Paketi incele</a></div></article>`);
         continue;
       }
       const P = await paketYukle(p), o = ozet(p, P.sorular);
