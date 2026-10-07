@@ -53,3 +53,16 @@ table.rapor td.oran { width: 38%; }
 .kok { white-space: nowrap; }
 .kok > span { border-top: 1.5px solid currentColor; padding: 0 .12em 0 .05em; margin-left: .02em; }
 .yukleniyor { text-align: center; color: var(--muted); padding: 3rem 0; }
+
+/* Test seçimi: basamaklar (Isın · Güçlen · Yarış) ve 20'lik test blokları */
+.basamak { margin-top: 1rem; }
+.basamak h2 { font-size: 1.1rem; margin: 0 0 .6rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .6rem; }
+.test-bloklari { display: grid; gap: .5rem; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); }
+.blok { display: block; text-decoration: none; color: var(--ink); border: 1px solid var(--line); border-radius: 12px; padding: .55rem .7rem; background: var(--bg); }
+.blok:hover { border-color: var(--accent); }
+.blok b { display: block; }
+.blok span { font-size: .8rem; color: var(--muted); }
+.blok.yarim { border-color: var(--accent); }
+.blok.tamam { border-color: var(--green); background: var(--green-soft); }
+.kazanim-sec { display: inline-flex; align-items: center; gap: .4rem; margin: 0 0 .8rem; color: var(--muted); font-size: .92rem; max-width: 100%; }
+.kazanim-sec select { font: inherit; color: var(--ink); background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: .35rem .5rem; max-width: 100%; min-width: 0; }

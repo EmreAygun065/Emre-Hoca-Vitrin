@@ -89,10 +89,49 @@
   const cozumHTML = q => `<ol class="steps">${q.steps.map(s => `<li>${s}</li>`).join('')}</ol><div class="answer">${q.answer}</div>${q.trap ? `<div class="trap">${q.trap}</div>` : ''}`
     + `<details class="celdiriciler" open><summary>Çeldirici analizi</summary><ul>${Object.entries(q.celdirici).map(([j, t]) => `<li><b>${HARF[j]})</b> ${q.opts[j]} — ${t}</li>`).join('')}</ul></details>`;
   const cubuk = (oran, kirmizi) => `<div class="cubuk ${kirmizi ? 'kirmizi' : ''}"><span style="width:${oran}%"></span></div>`;
-  const filtreAdi = f => f === 'tum' ? 'Tüm sorular' : f === 'yanlis' ? 'Yanlışlarım' : f;
+  // Basamaklar: Isın (kazanımı öğreten temel sorular), Güçlen (pekiştirme), Yarış (LGS tarzı yeni nesil)
+  const TURLER = [['isin', 'Isın', 'Kazanımı öğreten temel sorular'], ['guclen', 'Güçlen', 'Pekiştirme soruları'], ['yaris', 'Yarış', 'LGS tarzı yeni nesil sorular']];
+  const turOf = q => q.tur || (q.zorluk === 'Kolay' ? 'isin' : q.zorluk === 'Orta' ? 'guclen' : 'yaris');
+  const turAdi = t => (TURLER.find(x => x[0] === t) || [, t])[1];
+  const BLOK = 20; // bir testteki soru sayısı (yaklaşık)
+  // Soruları ~20'lik testlere eşit dağıt: 123 soru → 6 test (20–21), 217 → 11 test (19–20)
+  const bloklar = qs => { const k = Math.max(1, Math.round(qs.length / BLOK)); return Array.from({ length: k }, (_, i) => qs.slice(Math.floor(i * qs.length / k), Math.floor((i + 1) * qs.length / k))); };
+  // Filtre adları: tum | isin | guclen | yaris | k~<kazanım> | yanlis | cozulmemis | <zorluk>
+  // Test filtreleri ayrıca 20'lik blok taşır: isin~2 (Isın 2. test), karma (rastgele 20), k~M.8.1.2.1 (kazanımdan rastgele 20)
+  const filtreAdi = (f, P) => {
+    const [a, b] = f.split('~');
+    if (a === 'tum') return 'Tüm sorular';
+    if (a === 'yanlis') return 'Yanlışlarım';
+    if (a === 'cozulmemis') return 'Çözülmemişler';
+    if (a === 'karma') return 'Karma test';
+    if (a === 'k') return P && P.kazanimlar[b] ? P.kazanimlar[b].konu : b;
+    if (TURLER.some(t => t[0] === a)) return turAdi(a) + (b ? ` · Test ${b}` : '');
+    return a;
+  };
   function filtrele(P, p, f) {
-    if (f === 'yanlis') { const il = ilerleme(p); return P.sorular.filter(q => il[q.no] && il[q.no].son === 'y'); }
-    return f === 'tum' ? P.sorular : P.sorular.filter(q => q.zorluk === f);
+    const [a, b] = f.split('~'), il = ilerleme(p);
+    if (a === 'yanlis') return P.sorular.filter(q => il[q.no] && il[q.no].son === 'y');
+    if (a === 'cozulmemis') return P.sorular.filter(q => !il[q.no]);
+    if (a === 'tum' || a === 'karma') return P.sorular;
+    if (a === 'k') return P.sorular.filter(q => q.kazanim === b);
+    if (TURLER.some(t => t[0] === a)) return P.sorular.filter(q => turOf(q) === a);
+    return P.sorular.filter(q => q.zorluk === a);
+  }
+  // Rastgele seçim: önce hiç çözülmemiş, sonra yanlış yapılmış, en son doğru yapılmış sorular
+  function rastgeleSec(p, sorular, n) {
+    const il = ilerleme(p), puan = q => !il[q.no] ? 0 : il[q.no].son === 'y' ? 1 : 2;
+    return sorular.map(q => [puan(q), Math.random(), q]).sort((x, y) => x[0] - y[0] || x[1] - y[1]).slice(0, n).map(x => x[2]);
+  }
+  function testListesi(P, p, f) {
+    const [a, b] = f.split('~');
+    if (a === 'karma') { // basamakların oranını koruyarak 20 soru
+      const pay = { isin: 4, guclen: 8, yaris: 8 };
+      return TURLER.flatMap(([t]) => rastgeleSec(p, P.sorular.filter(q => turOf(q) === t), pay[t])).sort(() => Math.random() - .5);
+    }
+    if (a === 'k') return rastgeleSec(p, filtrele(P, p, f), BLOK);
+    if (a === 'yanlis') return filtrele(P, p, f).slice(0, BLOK);
+    if (b) return bloklar(filtrele(P, p, a))[+b - 1] || [];
+    return filtrele(P, p, f);
   }
   const yukleniyor = (m = 'Yükleniyor…') => { uyg.innerHTML = `<p class="yukleniyor">${m}</p>`; };
 
@@ -138,7 +177,7 @@
     for (const p of Object.keys(KATALOG)) {
       const k = KATALOG[p];
       if (!acik.includes(p)) {
-        kartlar.push(`<article class="kutu paket-kart"><span class="kucuk-yazi">🔒 Kilitli</span><h2>${k.ad}</h2><p class="kucuk-yazi">${k.soruSayisi} görselli soru</p><div class="eylemler"><a class="dugme kucuk ikincil" href="../#paketler">Paketi incele</a></div></article>`);
+        kartlar.push(`<article class="kutu paket-kart"><span class="kucuk-yazi">🔒 Kilitli</span><h2>${k.ad}</h2><p class="kucuk-yazi">${k.soruSayisi} soru</p><div class="eylemler"><a class="dugme kucuk ikincil" href="../#paketler">Paketi incele</a></div></article>`);
         continue;
       }
       const P = await paketYukle(p), o = ozet(p, P.sorular);
@@ -163,26 +202,38 @@
   function testSecimi(p, P) {
     const il = ilerleme(p), yanlis = P.sorular.filter(q => il[q.no] && il[q.no].son === 'y').length;
     const sec = (f, ad, alt) => `<a class="secenek" href="#/p/${p}/test/${encodeURIComponent(f)}"><b>${ad}</b><span>${alt}</span></a>`;
+    const basamakKutulari = TURLER.map(([t, ad, aciklama]) => {
+      const qs = P.sorular.filter(q => turOf(q) === t); if (!qs.length) return '';
+      return `<div class="kutu basamak"><h2>${ad} <span class="kucuk-yazi">${aciklama} · ${qs.length} soru</span></h2><div class="test-bloklari">${bloklar(qs).map((blok, k) => {
+        const o = ozet(p, blok), tamam = o.cozulen === blok.length;
+        return `<a class="blok ${tamam ? 'tamam' : o.cozulen ? 'yarim' : ''}" href="#/p/${p}/test/${t}~${k + 1}"><b>Test ${k + 1}</b><span>${tamam ? `%${o.oran} başarı` : o.cozulen ? `${o.cozulen}/${blok.length} çözüldü` : `${blok.length} soru`}</span></a>`;
+      }).join('')}</div></div>`;
+    }).join('');
+    const kazanimlar = [...new Set(P.sorular.map(q => q.kazanim))].sort();
     uyg.innerHTML = `<a class="geri" href="#/">← Paketlerim</a><h1>${P.ad} · Test</h1>
-      <p class="alt-baslik">Soruları işaretleyin, sonunda puanınızı ve her sorunun çözümünü görün.</p>
+      <p class="alt-baslik">Her test yaklaşık ${BLOK} sorudur. Soruları işaretleyin, sonunda netinizi ve her sorunun çözümünü görün.</p>
       <div class="secenekler">
-        ${sec('tum', 'Tüm sorular', `${P.sorular.length} soru, karışık zorlukta`)}
-        ${ZORLUKLAR.map(z => sec(z, z, `${P.sorular.filter(q => q.zorluk === z).length} soru`)).join('')}
-        ${yanlis ? sec('yanlis', 'Yanlışlarım', `${yanlis} soru · daha önce yanlış yaptıklarınız`) : ''}
-      </div>`;
+        ${sec('karma', '🎲 Karma test', `${BLOK} soru · üç basamaktan karışık, önce çözmediğiniz sorular`)}
+        ${yanlis ? sec('yanlis', 'Yanlışlarım', `${Math.min(yanlis, BLOK)} soru · daha önce yanlış yaptıklarınız`) : ''}
+      </div>
+      ${basamakKutulari}
+      <div class="kutu basamak"><h2>Konuya göre <span class="kucuk-yazi">her seferinde o kazanımdan ${BLOK} soru</span></h2><div class="secenekler">
+        ${kazanimlar.map(k => sec(`k~${k}`, P.kazanimlar[k].konu, `${k} · ${P.sorular.filter(q => q.kazanim === k).length} soru`)).join('')}</div></div>`;
   }
 
   let TEST = null;
   function test(p, P, f) {
-    const liste = filtrele(P, p, f);
-    if (!liste.length) { location.hash = `#/p/${p}/test`; return; }
-    if (!TEST || TEST.anahtar !== p + f) TEST = { anahtar: p + f, liste, cevap: liste.map(() => null), i: 0, bitti: false };
+    if (!TEST || TEST.anahtar !== p + f) {
+      const liste = testListesi(P, p, f);
+      if (!liste.length) { location.hash = `#/p/${p}/test`; return; }
+      TEST = { anahtar: p + f, liste, cevap: liste.map(() => null), i: 0, bitti: false };
+    }
     TEST.bitti ? sonuc(p, P, f) : testCiz(p, P, f);
   }
 
   function testCiz(p, P, f) {
     const T = TEST, q = T.liste[T.i];
-    uyg.innerHTML = `<a class="geri" href="#/p/${p}/test">← Test seçimi</a><h1>${P.ad} · ${filtreAdi(f)}</h1>
+    uyg.innerHTML = `<a class="geri" href="#/p/${p}/test">← Test seçimi</a><h1>${P.ad} · ${filtreAdi(f, P)}</h1>
       <div class="soru-nav" aria-label="Sorular">${T.liste.map((_, i) => `<button type="button" data-i="${i}" class="${T.cevap[i] !== null ? 'isaretli' : ''} ${i === T.i ? 'aktif' : ''}">${i + 1}</button>`).join('')}</div>
       <div class="kutu">${soruBas(q, T.i + 1, P)}
         <div class="opts ${q.long ? 'long' : ''}">${q.opts.map((o, j) => `<button type="button" class="opt ${T.cevap[T.i] === j ? 'secili' : ''}" data-j="${j}"><b>${HARF[j]})</b>${o}</button>`).join('')}</div>
@@ -208,10 +259,10 @@
     const T = TEST;
     const d = T.liste.filter((q, i) => T.cevap[i] === q.ans).length, b = T.cevap.filter(c => c === null).length, y = T.liste.length - d - b;
     const net = Math.round((d - y / 3) * 100) / 100;
-    uyg.innerHTML = `<a class="geri" href="#/p/${p}/test">← Test seçimi</a><h1>Sonuç · ${filtreAdi(f)}</h1>
+    uyg.innerHTML = `<a class="geri" href="#/p/${p}/test">← Test seçimi</a><h1>Sonuç · ${filtreAdi(f, P)}</h1>
       <div class="kutu"><div class="puan-izgara"><div class="d"><b>${d}</b>Doğru</div><div class="y"><b>${y}</b>Yanlış</div><div><b>${b}</b>Boş</div><div class="n"><b>${String(net).replace('.', ',')}</b>Net</div></div>
         <p class="kucuk-yazi">LGS'deki gibi 3 yanlış 1 doğruyu götürür. Aşağıda her sorunun çözümünü açabilirsiniz.</p>
-        <div class="eylemler" style="display:flex;flex-wrap:wrap;gap:.5rem"><button class="dugme kucuk" id="tekrar" type="button">Testi yeniden çöz</button><a class="dugme kucuk ikincil" href="#/p/${p}/ilerleme">İlerlememi gör</a></div></div>
+        <div class="eylemler" style="display:flex;flex-wrap:wrap;gap:.5rem"><button class="dugme kucuk" id="tekrar" type="button">${/^(karma|k~|yanlis)/.test(f) ? 'Yeni test' : 'Testi yeniden çöz'}</button>${(() => { const [a, b] = f.split('~'); return b && TURLER.some(t => t[0] === a) && +b < bloklar(filtrele(P, p, a)).length ? `<a class="dugme kucuk ikincil" href="#/p/${p}/test/${a}~${+b + 1}">Sonraki test →</a>` : ''; })()}<a class="dugme kucuk ikincil" href="#/p/${p}/ilerleme">İlerlememi gör</a></div></div>
       <div class="inceleme">${T.liste.map((q, i) => {
         const c = T.cevap[i], dogru = c === q.ans;
         const et = c === null ? '<span class="etiket b">Boş</span>' : dogru ? '<span class="etiket d">✓ Doğru</span>' : '<span class="etiket y">✗ Yanlış</span>';
@@ -225,12 +276,13 @@
 
   function calis(p, P, f, i) {
     const liste = filtrele(P, p, f);
-    if (!liste.length) { location.hash = `#/p/${p}`; return; }
+    if (!liste.length) { uyg.innerHTML = `<a class="geri" href="#/p/${p}/calis/tum/0">← Tüm sorular</a><h1>${P.ad} · Çalış</h1><p class="alt-baslik">${f === 'yanlis' ? 'Yanlış yaptığınız soru yok. 👏' : f === 'cozulmemis' ? 'Bütün soruları çözdünüz. 👏' : 'Bu seçimde soru yok.'}</p>`; return; }
     i = Math.min(Math.max(0, i), liste.length - 1);
     const q = liste[i];
     let adim = 0, ipucu = 0, isaretlendi = false;
     uyg.innerHTML = `<a class="geri" href="#/">← Paketlerim</a><h1>${P.ad} · Çalış</h1>
-      <div class="sekmeler" role="tablist">${['tum', ...ZORLUKLAR].map(z => `<a class="secenek" style="padding:.35rem .9rem;border-radius:999px;display:inline-block" href="#/p/${p}/calis/${encodeURIComponent(z)}/0" ${z === f ? 'aria-current="true"' : ''}>${z === f ? '<b style="display:inline">' + filtreAdi(z) + '</b>' : filtreAdi(z)}</a>`).join('')}</div>
+      <div class="sekmeler" role="tablist">${['tum', ...TURLER.map(t => t[0]), 'cozulmemis', 'yanlis'].map(z => `<a class="secenek" style="padding:.35rem .9rem;border-radius:999px;display:inline-block" href="#/p/${p}/calis/${encodeURIComponent(z)}/0" ${z === f ? 'aria-current="true"' : ''}>${z === f ? '<b style="display:inline">' + filtreAdi(z, P) + '</b>' : filtreAdi(z, P)}</a>`).join('')}</div>
+      <label class="kazanim-sec">Konu: <select id="konuSec"><option value="">Tüm konular</option>${[...new Set(P.sorular.map(x => x.kazanim))].sort().map(k => `<option value="k~${k}" ${f === 'k~' + k ? 'selected' : ''}>${P.kazanimlar[k].konu} (${k})</option>`).join('')}</select></label>
       <div class="soru-kutu"><div>${soruBas(q, i + 1, P)}
         <div class="opts ${q.long ? 'long' : ''}">${q.opts.map((o, j) => `<button type="button" class="opt" data-j="${j}"><b>${HARF[j]})</b>${o}</button>`).join('')}</div>
         <div class="feedback" id="geri" aria-live="polite"></div></div>
@@ -244,6 +296,7 @@
         <a class="dugme kucuk ikincil" href="#/p/${p}/calis/${encodeURIComponent(f)}/${i - 1}" ${i ? '' : 'aria-disabled="true" tabindex="-1"'}>← Önceki</a>
         <a class="dugme kucuk" href="#/p/${p}/calis/${encodeURIComponent(f)}/${i + 1}" ${i < liste.length - 1 ? '' : 'aria-disabled="true" tabindex="-1"'}>Sonraki →</a></div></div>`;
     uyg.querySelectorAll('.alt-cubuk [aria-disabled]').forEach(a => a.onclick = e => e.preventDefault());
+    document.getElementById('konuSec').onchange = e => { location.hash = `#/p/${p}/calis/${encodeURIComponent(e.target.value || 'tum')}/0`; };
     const $ = id => document.getElementById(id);
     uyg.querySelectorAll('.opt').forEach(b => b.onclick = () => {
       const j = +b.dataset.j, g = $('geri');
@@ -282,10 +335,12 @@
       ${zayif.length ? `<div class="kutu" style="border-color:var(--accent)"><b>Tekrar etmen gereken konular:</b> ${zayif.map(z => P.kazanimlar[z.k].konu).join(', ')}</div><br>` : ''}
       <div class="kutu"><h2 style="font-size:1.1rem;margin:0 0 .4rem">Konulara (kazanımlara) göre</h2><table class="rapor"><tr><th>Konu</th><th>Çözülen</th><th>Başarı</th></tr>
         ${kazanimlar.map(k => satir(`${P.kazanimlar[k].konu} <span class="kucuk-yazi">${k}</span>`, P.sorular.filter(q => q.kazanim === k), P.kazanimlar[k].metin)).join('')}</table></div><br>
+      <div class="kutu"><h2 style="font-size:1.1rem;margin:0 0 .4rem">Basamaklara göre</h2><table class="rapor"><tr><th>Basamak</th><th>Çözülen</th><th>Başarı</th></tr>
+        ${TURLER.filter(([t]) => P.sorular.some(q => turOf(q) === t)).map(([t, ad, aciklama]) => satir(ad, P.sorular.filter(q => turOf(q) === t), aciklama)).join('')}</table></div><br>
       <div class="kutu"><h2 style="font-size:1.1rem;margin:0 0 .4rem">Zorluğa göre</h2><table class="rapor"><tr><th>Zorluk</th><th>Çözülen</th><th>Başarı</th></tr>
         ${ZORLUKLAR.map(z => satir(`<span class="tag zorluk" data-z="${z}">${z}</span>`, P.sorular.filter(q => q.zorluk === z))).join('')}</table></div>
       <div class="eylemler" style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem">
-        ${o.yanlis ? `<a class="dugme kucuk" href="#/p/${p}/test/yanlis">Yanlışlarımı tekrar çöz (${o.yanlis})</a>` : ''}
+        ${o.yanlis ? `<a class="dugme kucuk" href="#/p/${p}/test/yanlis">Yanlışlarımı tekrar çöz (${Math.min(o.yanlis, BLOK)})</a>` : ''}
         <a class="dugme kucuk ikincil" href="#/p/${p}/test">Yeni test</a>
         ${o.cozulen ? '<button class="dugme kucuk ikincil" id="sifirla" type="button">İlerlemeyi sıfırla</button>' : ''}</div>`;
     const s = document.getElementById('sifirla');
