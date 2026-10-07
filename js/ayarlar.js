@@ -3,6 +3,7 @@ window.AYARLAR = {
   paketler: {
     // shopier: Shopier'daki ürün sayfasının adresi. Boşsa düğme "Çok yakında" olarak görünür.
     // fiyat: Yalnızca rakam, ör. '149'. Boşsa "Fiyat yakında" yazar.
+    carpan: { shopier: '', fiyat: '' },
     uslu: { shopier: '', fiyat: '' },
     karekok: { shopier: '', fiyat: '' },
     ikili: { shopier: '', fiyat: '' }

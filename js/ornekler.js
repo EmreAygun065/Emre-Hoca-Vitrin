@@ -2,6 +2,118 @@
 // Bu dosya benim-projem deposundaki soru havuzundan üretilir; paketlerin geri kalanı burada yer almaz.
 window.ORNEKLER = [
  {
+  "unite": "Çarpanlar ve Katlar",
+  "kazanim": "M.8.1.1.2",
+  "kazanimMetni": "İki doğal sayının en büyük ortak bölenini (EBOB) ve en küçük ortak katını (EKOK) hesaplar, ilgili problemleri çözer.",
+  "konu": "EBOB ve EKOK",
+  "zorluk": "Kolay",
+  "q": "<p>Uzunlukları 30 cm ve 18 cm olan iki tahta çıta, hiç artmayacak şekilde eşit uzunlukta ve mümkün olan en uzun parçalara kesilecektir.</p><p class=\"ask\">Bir parçanın uzunluğu kaç cm olur?</p>",
+  "opts": [
+   "90",
+   "8",
+   "6",
+   "3"
+  ],
+  "ans": 2,
+  "hints": [
+   "En uzun ortak parça: EBOB"
+  ],
+  "steps": [
+   "EBOB(30, 18) = 6 cm",
+   "Parça uzunluğu: <b>6 cm</b>"
+  ],
+  "answer": "Cevap: <b>C</b>",
+  "celdirici": {
+   "0": "EKOK'u bulmak; parça uzunluğu iki uzunluğu da bölmelidir.",
+   "1": "Parça sayısını uzunluk sanmak.",
+   "3": "Ortak bölendir ama en büyüğü değildir."
+  }
+ },
+ {
+  "unite": "Çarpanlar ve Katlar",
+  "kazanim": "M.8.1.1.3",
+  "kazanimMetni": "Verilen iki doğal sayının aralarında asal olup olmadığını belirler.",
+  "konu": "Aralarında asal sayılar",
+  "zorluk": "Orta",
+  "q": "<p class=\"ask\">Aşağıdaki sayı ikililerinden hangisi aralarında asal <u>değildir</u>?</p>",
+  "opts": [
+   "44 ve 52",
+   "28 ve 29",
+   "36 ve 55",
+   "28 ve 33"
+  ],
+  "ans": 0,
+  "hints": [
+   "Aralarında asal sayıların 1'den başka ortak böleni yoktur."
+  ],
+  "steps": [
+   "44 = 2<sup>2</sup> · 11, 52 = 2<sup>2</sup> · 13",
+   "EBOB(44, 52) = 4 → <b>44 ve 52</b>"
+  ],
+  "answer": "Cevap: <b>A</b>",
+  "celdirici": {
+   "1": "28 ve 29 sayılarının 1'den başka ortak böleni yoktur; aralarında asaldır.",
+   "2": "36 ve 55 sayılarının 1'den başka ortak böleni yoktur; aralarında asaldır.",
+   "3": "28 ve 33 sayılarının 1'den başka ortak böleni yoktur; aralarında asaldır."
+  }
+ },
+ {
+  "unite": "Çarpanlar ve Katlar",
+  "kazanim": "M.8.1.1.2",
+  "kazanimMetni": "İki doğal sayının en büyük ortak bölenini (EBOB) ve en küçük ortak katını (EKOK) hesaplar, ilgili problemleri çözer.",
+  "konu": "EBOB ve EKOK",
+  "zorluk": "Zor",
+  "q": "<p>Uzunlukları şekilde verilen iki kurdele, hiç artmayacak şekilde eşit uzunlukta ve mümkün olan en uzun parçalara kesilecektir.</p><div class=\"fig\"><svg viewBox=\"0 0 520 140\" width=\"520\" role=\"img\" aria-label=\"Kurdeleler: 84 santimetre ve 126 santimetre\"><rect x=\"30\" y=\"30\" width=\"336\" height=\"22\" fill=\"#e8508a\" stroke=\"var(--fig-stroke)\"/><text x=\"198\" y=\"22\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" >84 cm</text>\n    <rect x=\"30\" y=\"90\" width=\"504\" height=\"22\" fill=\"var(--fig-blue)\" stroke=\"var(--fig-stroke)\" transform=\"scale(.94 1)\"/><text x=\"255\" y=\"84\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" >126 cm</text></svg></div><p class=\"ask\">Toplam kaç parça elde edilir?</p>",
+  "opts": [
+   "42",
+   "5",
+   "3",
+   "10"
+  ],
+  "ans": 1,
+  "hints": [
+   "Parça uzunluğu iki uzunluğun da böleni ve mümkün olan en büyük değer: EBOB."
+  ],
+  "steps": [
+   "84 = 2² · 3 · 7, 126 = 2 · 3² · 7 → EBOB = 2 · 3 · 7 = 42",
+   "Parça sayısı: 84 : 42 + 126 : 42 = 2 + 3 = <b>5</b>"
+  ],
+  "answer": "Cevap: <b>B</b>",
+  "celdirici": {
+   "0": "Parça uzunluğunu parça sayısı sanmak.",
+   "2": "Yalnızca uzun kurdelenin parça sayısını bulmak.",
+   "3": "En uzun parça yerine 21 cm almak: 4 + 6 = 10."
+  }
+ },
+ {
+  "unite": "Çarpanlar ve Katlar",
+  "kazanim": "M.8.1.1.2",
+  "kazanimMetni": "İki doğal sayının en büyük ortak bölenini (EBOB) ve en küçük ortak katını (EKOK) hesaplar, ilgili problemleri çözer.",
+  "konu": "EBOB ve EKOK",
+  "zorluk": "Çok zor",
+  "q": "<p>Birbirine geçmiş iki çarktan A'da 24, B'de 36 diş vardır. Başlangıçta kırmızı noktayla işaretli dişler karşı karşıyadır.</p><div class=\"fig\"><svg viewBox=\"0 0 520 230\" width=\"520\" role=\"img\" aria-label=\"Birbirine geçen iki çark: A 24 dişli, B 36 dişli\"><path d=\"M218.0 100.0 L209.5 107.8 L215.7 117.6 L205.4 123.0 L208.9 134.0 L197.6 136.5 L198.1 148.1 L186.5 147.6 L184.0 158.9 L173.0 155.4 L167.6 165.7 L157.8 159.5 L150.0 168.0 L142.2 159.5 L132.4 165.7 L127.0 155.4 L116.0 158.9 L113.5 147.6 L101.9 148.1 L102.4 136.5 L91.1 134.0 L94.6 123.0 L84.3 117.6 L90.5 107.8 L82.0 100.0 L90.5 92.2 L84.3 82.4 L94.6 77.0 L91.1 66.0 L102.4 63.5 L101.9 51.9 L113.5 52.4 L116.0 41.1 L127.0 44.6 L132.4 34.3 L142.2 40.5 L150.0 32.0 L157.8 40.5 L167.6 34.3 L173.0 44.6 L184.0 41.1 L186.5 52.4 L198.1 51.9 L197.6 63.5 L208.9 66.0 L205.4 77.0 L215.7 82.4 L209.5 92.2 Z\" fill=\"var(--fig-yellow)\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.5\"/><circle cx=\"150\" cy=\"100\" r=\"21\" fill=\"var(--bg, #fff)\" stroke=\"var(--fig-stroke)\"/><text x=\"150\" y=\"194\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" >A: 24 diş</text><path d=\"M438.0 100.0 L429.7 107.4 L436.6 116.1 L427.1 122.0 L432.4 131.8 L422.0 135.9 L425.5 146.5 L414.6 148.8 L416.2 159.8 L405.1 160.1 L404.8 171.2 L393.8 169.6 L391.5 180.5 L380.9 177.0 L376.8 187.4 L367.0 182.1 L361.1 191.6 L352.4 184.7 L345.0 193.0 L337.6 184.7 L328.9 191.6 L323.0 182.1 L313.2 187.4 L309.1 177.0 L298.5 180.5 L296.2 169.6 L285.2 171.2 L284.9 160.1 L273.8 159.8 L275.4 148.8 L264.5 146.5 L268.0 135.9 L257.6 131.8 L262.9 122.0 L253.4 116.1 L260.3 107.4 L252.0 100.0 L260.3 92.6 L253.4 83.9 L262.9 78.0 L257.6 68.2 L268.0 64.1 L264.5 53.5 L275.4 51.2 L273.8 40.2 L284.9 39.9 L285.2 28.8 L296.2 30.4 L298.5 19.5 L309.1 23.0 L313.2 12.6 L323.0 17.9 L328.9 8.4 L337.6 15.3 L345.0 7.0 L352.4 15.3 L361.1 8.4 L367.0 17.9 L376.8 12.6 L380.9 23.0 L391.5 19.5 L393.8 30.4 L404.8 28.8 L405.1 39.9 L416.2 40.2 L414.6 51.2 L425.5 53.5 L422.0 64.1 L432.4 68.2 L427.1 78.0 L436.6 83.9 L429.7 92.6 Z\" fill=\"var(--blue-soft)\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.5\"/><circle cx=\"345\" cy=\"100\" r=\"29.749999999999996\" fill=\"var(--bg, #fff)\" stroke=\"var(--fig-stroke)\"/><text x=\"345\" y=\"219\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" >B: 36 diş</text><circle cx=\"214\" cy=\"100\" r=\"6\" fill=\"var(--red)\"/></svg></div><p class=\"ask\">İşaretli dişlerin ilk kez yeniden karşılaşması için A çarkı en az kaç tur dönmelidir?</p>",
+  "opts": [
+   "6",
+   "2",
+   "3",
+   "72"
+  ],
+  "ans": 2,
+  "hints": [
+   "Karşılaşma için geçen diş sayısı her iki çarkın diş sayısının katı olmalı: EKOK."
+  ],
+  "steps": [
+   "EKOK(24, 36) = 72 diş",
+   "A çarkı: 72 : 24 = <b>3</b> tur (B çarkı 2 tur)"
+  ],
+  "answer": "Cevap: <b>C</b>",
+  "celdirici": {
+   "0": "EBOB'u (12) kullanmak ve 72 : 12 yazmak.",
+   "1": "B çarkının tur sayısını vermek.",
+   "3": "Geçen diş sayısını tur sayısı sanmak."
+  }
+ },
+ {
   "unite": "Üslü İfadeler",
   "kazanim": "M.8.1.2.1",
   "kazanimMetni": "Tam sayıların, tam sayı kuvvetlerini hesaplar.",
