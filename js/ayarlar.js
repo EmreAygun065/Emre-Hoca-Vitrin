@@ -3,10 +3,11 @@ window.AYARLAR = {
   paketler: {
     // shopier: Shopier'daki ürün sayfasının adresi. Boşsa düğme "Çok yakında" olarak görünür.
     // fiyat: Yalnızca rakam, ör. '149'. Boşsa "Fiyat yakında" yazar.
-    // Her ünite: -yaris (Yarış Paketi, 60 soru), adsız (Tam Paket, 400 soru), -yukselt (Yarış → Tam yükseltme farkı)
+    // Her ünite: -yaris (Yarış Paketi, 60–64 soru), adsız (Tam Paket, 400 soru), -yukselt (Yarış → Tam yükseltme farkı)
     carpan: { shopier: '', fiyat: '' }, 'carpan-yaris': { shopier: '', fiyat: '' }, 'carpan-yukselt': { shopier: '', fiyat: '' },
     uslu: { shopier: '', fiyat: '' }, 'uslu-yaris': { shopier: '', fiyat: '' }, 'uslu-yukselt': { shopier: '', fiyat: '' },
     karekok: { shopier: '', fiyat: '' }, 'karekok-yaris': { shopier: '', fiyat: '' }, 'karekok-yukselt': { shopier: '', fiyat: '' },
+    cebir: { shopier: '', fiyat: '' }, 'cebir-yaris': { shopier: '', fiyat: '' }, 'cebir-yukselt': { shopier: '', fiyat: '' },
     // 1. Dönem Paketi: üç ünitenin Tam Paketi
     donem1: { shopier: '', fiyat: '' }
   },

@@ -370,5 +370,119 @@ window.ORNEKLER = [
    "3": "Yürüme yolunu unutmak: havuz 14 m → 200 − 196 = 4."
   },
   "trap": "“Her kenarda” 1 m yol, havuzun kenarını <b>2 m</b> kısaltır: bir yanda 1 m, karşı yanda 1 m."
+ },
+ {
+  "unite": "Cebirsel İfadeler ve Özdeşlikler",
+  "kazanim": "M.8.2.1.3",
+  "kazanimMetni": "Özdeşlikleri modellerle açıklar.",
+  "konu": "Özdeşlikler",
+  "zorluk": "Kolay",
+  "q": "<p class=\"ask\">(<i>x</i> − 4)<sup>2</sup> ifadesinin açılımı aşağıdakilerden hangisidir?</p>",
+  "opts": [
+   "<i>x</i><sup>2</sup> − 4<i>x</i> + 16",
+   "<i>x</i><sup>2</sup> + 8<i>x</i> + 16",
+   "<i>x</i><sup>2</sup> + 16",
+   "<i>x</i><sup>2</sup> − 8<i>x</i> + 16"
+  ],
+  "ans": 3,
+  "hints": [
+   "(<i>a</i> + <i>b</i>)<sup>2</sup> = <i>a</i><sup>2</sup> + 2<i>a</i><i>b</i> + <i>b</i><sup>2</sup> ve (<i>a</i> − <i>b</i>)<sup>2</sup> = <i>a</i><sup>2</sup> − 2<i>a</i><i>b</i> + <i>b</i><sup>2</sup>"
+  ],
+  "steps": [
+   "(<i>x</i> − 4)<sup>2</sup> = <i>x</i><sup>2</sup> − 2 · <i>x</i> · 4 + 4<sup>2</sup>",
+   "= <b><i>x</i><sup>2</sup> − 8<i>x</i> + 16</b>"
+  ],
+  "answer": "Cevap: <b>D</b>",
+  "celdirici": {
+   "0": "Orta terimi 2 ile çarpmayı unutmak.",
+   "1": "Orta terimin işaretini ters almak.",
+   "2": "Orta terimi unutmak; iki terimin toplamının karesi, karelerin toplamı değildir."
+  }
+ },
+ {
+  "unite": "Cebirsel İfadeler ve Özdeşlikler",
+  "kazanim": "M.8.2.1.4",
+  "kazanimMetni": "Cebirsel ifadeleri çarpanlara ayırır.",
+  "konu": "Çarpanlara ayırma",
+  "zorluk": "Orta",
+  "q": "<p class=\"ask\">3<i>a</i><sup>2</sup> − 3 ifadesinin çarpanlarına ayrılmış hâli aşağıdakilerden hangisidir?</p>",
+  "opts": [
+   "3(<i>a</i> − 3)(<i>a</i> + 3)",
+   "3(<i>a</i> − 1)<sup>2</sup>",
+   "(3<i>a</i> − 1)(<i>a</i> + 1)",
+   "3(<i>a</i> − 1)(<i>a</i> + 1)"
+  ],
+  "ans": 3,
+  "hints": [
+   "Önce ortak çarpanı parantezin dışına al, sonra parantezin içine bak."
+  ],
+  "steps": [
+   "3<i>a</i><sup>2</sup> − 3 = 3(<i>a</i><sup>2</sup> − 1)",
+   "= <b>3(<i>a</i> − 1)(<i>a</i> + 1)</b>"
+  ],
+  "answer": "Cevap: <b>D</b>",
+  "celdirici": {
+   "0": "Ortak çarpanı parantezden çıkarmadan karekök almak.",
+   "1": "İki kare farkını tam kare sanmak.",
+   "2": "3 ortak çarpanını yalnızca bir terime uygulamak."
+  }
+ },
+ {
+  "unite": "Cebirsel İfadeler ve Özdeşlikler",
+  "kazanim": "M.8.2.1.3",
+  "kazanimMetni": "Özdeşlikleri modellerle açıklar.",
+  "konu": "Özdeşlikler",
+  "zorluk": "Zor",
+  "q": "<p>Kenar uzunluğu (2<i>x</i> + 3) cm olan kare biçimindeki bir kumaş, şekildeki gibi iki kare ve iki dikdörtgen parçaya ayrılmıştır. Boyasız iki dikdörtgen parçanın alanları toplamı 72 cm²'dir.</p><div class=\"fig\"><svg viewBox=\"0 0 400 304\" width=\"400\" role=\"img\" aria-label=\"Kenarı 2x + 3 olan kare: iki kare bölge boyalı, iki dikdörtgen bölge boyasız\"><rect x=\"130\" y=\"48\" width=\"170\" height=\"170\" fill=\"var(--fig-yellow)\" stroke=\"var(--fig-stroke)\" stroke-width=\"2\"/><rect x=\"300\" y=\"48\" width=\"70\" height=\"170\" fill=\"var(--bg, #fff)\" stroke=\"var(--fig-stroke)\" stroke-width=\"2\"/><rect x=\"130\" y=\"218\" width=\"170\" height=\"70\" fill=\"var(--bg, #fff)\" stroke=\"var(--fig-stroke)\" stroke-width=\"2\"/><rect x=\"300\" y=\"218\" width=\"70\" height=\"70\" fill=\"var(--fig-yellow)\" stroke=\"var(--fig-stroke)\" stroke-width=\"2\"/><line x1=\"132\" y1=\"28\" x2=\"298\" y2=\"28\" stroke=\"var(--fig-stroke)\" stroke-width=\"2\"/><polygon points=\"298,28 288.8,24.1 288.8,31.9\" fill=\"var(--fig-stroke)\"/><polygon points=\"132,28 141.2,31.9 141.2,24.1\" fill=\"var(--fig-stroke)\"/><text x=\"215\" y=\"20\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" >2x</text><line x1=\"302\" y1=\"28\" x2=\"368\" y2=\"28\" stroke=\"var(--fig-stroke)\" stroke-width=\"2\"/><polygon points=\"368,28 358.8,24.1 358.8,31.9\" fill=\"var(--fig-stroke)\"/><polygon points=\"302,28 311.2,31.9 311.2,24.1\" fill=\"var(--fig-stroke)\"/><text x=\"335\" y=\"20\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" >3</text><line x1=\"110\" y1=\"50\" x2=\"110\" y2=\"216\" stroke=\"var(--fig-stroke)\" stroke-width=\"2\"/><polygon points=\"110,216 113.9,206.8 106.1,206.8\" fill=\"var(--fig-stroke)\"/><polygon points=\"110,50 106.1,59.2 113.9,59.2\" fill=\"var(--fig-stroke)\"/><text x=\"100\" y=\"139\" text-anchor=\"end\" font-size=\"15\" font-weight=\"700\" >2x</text><line x1=\"110\" y1=\"220\" x2=\"110\" y2=\"286\" stroke=\"var(--fig-stroke)\" stroke-width=\"2\"/><polygon points=\"110,286 113.9,276.8 106.1,276.8\" fill=\"var(--fig-stroke)\"/><polygon points=\"110,220 106.1,229.2 113.9,229.2\" fill=\"var(--fig-stroke)\"/><text x=\"100\" y=\"259\" text-anchor=\"end\" font-size=\"15\" font-weight=\"700\" >3</text></svg></div><p class=\"ask\">Kumaşın tamamının alanı kaç cm²'dir?</p>",
+  "opts": [
+   "144",
+   "225",
+   "81",
+   "196"
+  ],
+  "ans": 1,
+  "hints": [
+   "Her dikdörtgenin alanı 2x · 3 = 6x'tir."
+  ],
+  "steps": [
+   "İki dikdörtgen: 6<i>x</i> + 6<i>x</i> = 12<i>x</i> = 72 → <i>x</i> = 6",
+   "Kenar: 2 · 6 + 3 = 15 cm",
+   "Alan: 15² = <b>225</b> cm²"
+  ],
+  "answer": "Cevap: <b>B</b>",
+  "celdirici": {
+   "0": "Büyük boyalı karenin alanını vermek (12²).",
+   "2": "Her dikdörtgenin alanını 12x sanmak: 24x = 72 → x = 3, kenar 9.",
+   "3": "Kenara 3 yerine 2 eklemek."
+  }
+ },
+ {
+  "unite": "Cebirsel İfadeler ve Özdeşlikler",
+  "kazanim": "M.8.2.1.3",
+  "kazanimMetni": "Özdeşlikleri modellerle açıklar.",
+  "konu": "Özdeşlikler",
+  "zorluk": "Çok zor",
+  "q": "<p>Alanı 121 m² olan kare biçimindeki bir salona dört eş dikdörtgen halı şekildeki gibi serilmiştir. Ortada kare biçiminde bir boşluk kalmıştır. Her halının alanı 28 m²'dir.</p><div class=\"fig\"><svg viewBox=\"0 0 420 350\" width=\"420\" role=\"img\" aria-label=\"Dört eş dikdörtgen halı kare bir odaya yerleştirilmiş; ortada kare boşluk kalmış\"><rect x=\"60\" y=\"60\" width=\"175\" height=\"100\" fill=\"var(--green-soft)\" stroke=\"var(--fig-stroke)\" stroke-width=\"2\"/><rect x=\"235\" y=\"60\" width=\"100\" height=\"175\" fill=\"var(--blue-soft)\" stroke=\"var(--fig-stroke)\" stroke-width=\"2\"/><rect x=\"160\" y=\"235\" width=\"175\" height=\"100\" fill=\"var(--green-soft)\" stroke=\"var(--fig-stroke)\" stroke-width=\"2\"/><rect x=\"60\" y=\"160\" width=\"100\" height=\"175\" fill=\"var(--blue-soft)\" stroke=\"var(--fig-stroke)\" stroke-width=\"2\"/><rect x=\"160\" y=\"160\" width=\"75\" height=\"75\" fill=\"var(--fig-yellow)\" stroke=\"var(--fig-stroke)\" stroke-width=\"2\"/><text x=\"197\" y=\"40\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" >Alan: 121 m²</text><text x=\"197.5\" y=\"203.5\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"700\" style=\"fill:#1f2328\">?</text></svg></div><p class=\"ask\">Bir halının uzun kenarı kaç metredir?</p>",
+  "opts": [
+   "3",
+   "4",
+   "7",
+   "11"
+  ],
+  "ans": 2,
+  "hints": [
+   "Halının kenarları a ve b ise salonun kenarı a + b, boşluğun kenarı a − b'dir."
+  ],
+  "steps": [
+   "Salonun kenarı: <i>a</i> + <i>b</i> = 11",
+   "Boşluk: 121 − 4 · 28 = 9 → <i>a</i> − <i>b</i> = 3",
+   "<i>a</i> = 7, <i>b</i> = 4 → uzun kenar <b>7</b> m"
+  ],
+  "answer": "Cevap: <b>C</b>",
+  "celdirici": {
+   "0": "Boşluğun kenarını vermek.",
+   "1": "Kısa kenarı vermek.",
+   "3": "Salonun kenarını vermek."
+  }
  }
 ];

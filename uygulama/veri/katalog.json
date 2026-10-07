@@ -17,6 +17,12 @@
   "unite": "karekok",
   "seviye": "tam"
  },
+ "cebir": {
+  "ad": "Cebirsel İfadeler ve Özdeşlikler",
+  "soruSayisi": 400,
+  "unite": "cebir",
+  "seviye": "tam"
+ },
  "carpan-yaris": {
   "ad": "Çarpanlar ve Katlar · Yarış",
   "soruSayisi": 60,
@@ -33,6 +39,12 @@
   "ad": "Kareköklü İfadeler · Yarış",
   "soruSayisi": 60,
   "unite": "karekok",
+  "seviye": "yaris"
+ },
+ "cebir-yaris": {
+  "ad": "Cebirsel İfadeler ve Özdeşlikler · Yarış",
+  "soruSayisi": 64,
+  "unite": "cebir",
   "seviye": "yaris"
  }
 }
