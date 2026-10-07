@@ -1,8 +1,8 @@
-// Vitrindeki ücretsiz örnek sorular (Üslü İfadeler paketinden 4 soru: her zorluktan bir tane).
-// Bu dosya benim-projem deposundaki soru havuzundan üretilir; paketin geri kalanı burada yer almaz.
+// Vitrindeki ücretsiz örnek sorular: her paketten 4 soru (her zorluktan bir tane).
+// Bu dosya benim-projem deposundaki soru havuzundan üretilir; paketlerin geri kalanı burada yer almaz.
 window.ORNEKLER = [
  {
-  "no": 1,
+  "unite": "Üslü İfadeler",
   "kazanim": "M.8.1.2.1",
   "kazanimMetni": "Tam sayıların, tam sayı kuvvetlerini hesaplar.",
   "konu": "Tam sayı kuvvetleri",
@@ -35,7 +35,7 @@ window.ORNEKLER = [
   "trap": ""
  },
  {
-  "no": 2,
+  "unite": "Üslü İfadeler",
   "kazanim": "M.8.1.2.3",
   "kazanimMetni": "Sayıların ondalık gösterimlerini 10'un tam sayı kuvvetlerini kullanarak çözümler.",
   "konu": "Ondalık çözümleme",
@@ -67,7 +67,7 @@ window.ORNEKLER = [
   "trap": ""
  },
  {
-  "no": 3,
+  "unite": "Üslü İfadeler",
   "kazanim": "M.8.1.2.2",
   "kazanimMetni": "Üslü ifadelerle ilgili temel kuralları anlar, birbirine denk ifadeler oluşturur.",
   "konu": "Temel kurallar",
@@ -100,7 +100,7 @@ window.ORNEKLER = [
   "trap": "Eşitlik ayını bulunca durmamak gerekir. Asıl tuzak son adımdaki toplamadır: aynı iki kuvvetin toplamı, o kuvvetin <b>2 katıdır</b>."
  },
  {
-  "no": 4,
+  "unite": "Üslü İfadeler",
   "kazanim": "M.8.1.2.1",
   "kazanimMetni": "Tam sayıların, tam sayı kuvvetlerini hesaplar.",
   "konu": "Tam sayı kuvvetleri",
@@ -131,5 +131,132 @@ window.ORNEKLER = [
    "3": "Delik sayısıyla katlama sayısını karıştırıp 4 · 3 = 12 kez katlamak."
   },
   "trap": "“Fazla” kelimesi önemli: 192'ye eşit olmak yetmez, geçmek gerekir. Ayrıca Ayşe'nin <b>3</b> deliği hesaba katılmazsa cevap küçük çıkar."
+ },
+ {
+  "unite": "Kareköklü İfadeler",
+  "kazanim": "M.8.1.3.1",
+  "kazanimMetni": "Tam kare pozitif tam sayılarla bu sayıların karekökleri arasındaki ilişkiyi belirler.",
+  "konu": "Tam kare sayılar",
+  "zorluk": "Kolay",
+  "q": "<p>Kare şeklindeki bir oyun parkının alanı 196 m<sup>2</sup>'dir. Parkın çevresi, şekildeki gibi çitle çevrilecektir.</p><div class=\"fig\"><svg viewBox=\"0 0 330 300\" width=\"330\" role=\"img\" aria-label=\"Kare şeklinde, alanı 196 metrekare olan park; çevresi çitle çevrilecek\"><rect x=\"60\" y=\"20\" width=\"220\" height=\"220\" fill=\"#bfe3a6\" stroke=\"#8a6a3a\" stroke-width=\"4\" stroke-dasharray=\"10 6\"/><circle cx=\"100\" cy=\"60\" r=\"15\" fill=\"#5cb85c\" stroke=\"#3b7a3b\" stroke-width=\"2\"/><rect x=\"98\" y=\"73\" width=\"4\" height=\"8\" fill=\"#8a6a3a\"/><circle cx=\"240\" cy=\"70\" r=\"15\" fill=\"#5cb85c\" stroke=\"#3b7a3b\" stroke-width=\"2\"/><rect x=\"238\" y=\"83\" width=\"4\" height=\"8\" fill=\"#8a6a3a\"/><circle cx=\"120\" cy=\"200\" r=\"15\" fill=\"#5cb85c\" stroke=\"#3b7a3b\" stroke-width=\"2\"/><rect x=\"118\" y=\"213\" width=\"4\" height=\"8\" fill=\"#8a6a3a\"/><circle cx=\"230\" cy=\"190\" r=\"15\" fill=\"#5cb85c\" stroke=\"#3b7a3b\" stroke-width=\"2\"/><rect x=\"228\" y=\"203\" width=\"4\" height=\"8\" fill=\"#8a6a3a\"/><circle cx=\"170\" cy=\"110\" r=\"15\" fill=\"#5cb85c\" stroke=\"#3b7a3b\" stroke-width=\"2\"/><rect x=\"168\" y=\"123\" width=\"4\" height=\"8\" fill=\"#8a6a3a\"/><rect x=\"95\" y=\"128\" width=\"150\" height=\"34\" rx=\"8\" fill=\"var(--card)\" stroke=\"var(--fig-stroke)\"/><text x=\"170\" y=\"151\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"700\" >Alan = 196 m²</text><text x=\"170\" y=\"268\" text-anchor=\"middle\" font-size=\"14\" style=\"fill:var(--muted)\">Kesikli çizgi: çit</text></svg></div><p class=\"ask\">Kullanılacak çitin uzunluğu kaç metredir?</p>",
+  "opts": [
+   "28",
+   "49",
+   "56",
+   "784"
+  ],
+  "ans": 2,
+  "long": false,
+  "hints": [
+   "Karenin alanı = kenar · kenar. Hangi sayının karesi 196?"
+  ],
+  "steps": [
+   "14 · 14 = 196 → <span class=\"kok\">√<span>196</span></span> = 14 → bir kenar 14 m",
+   "Çevre = 4 · 14",
+   "= <b>56 m</b>"
+  ],
+  "answer": "Cevap: <b>C</b>",
+  "celdirici": {
+   "0": "Yalnızca iki kenarı toplamak (14 + 14). Karenin dört kenarı vardır.",
+   "1": "Alanı 4'e bölmek (196 : 4 = 49). Önce kenar uzunluğu bulunmalıdır.",
+   "3": "Alanı 4 ile çarpmak. Çevre, kenar uzunluğunun 4 katıdır; alanın değil."
+  },
+  "trap": ""
+ },
+ {
+  "unite": "Kareköklü İfadeler",
+  "kazanim": "M.8.1.3.2",
+  "kazanimMetni": "Tam kare olmayan kareköklü bir ifadenin hangi iki doğal sayı arasında olduğunu belirler.",
+  "konu": "Karekökün yaklaşık değeri",
+  "zorluk": "Orta",
+  "q": "<p>Bir bisikletli, şekildeki rotada A noktasından B noktasına, oradan da C noktasına gidiyor.</p><div class=\"fig\"><svg viewBox=\"0 0 540 190\" width=\"540\" role=\"img\" aria-label=\"Bisiklet rotası: A dan B ye kök 40 km, B den C ye kök 10 km\">\n    <path d=\"M60 140 Q 180 60 300 120 T 480 70\" fill=\"none\" stroke=\"var(--fig-stroke)\" stroke-width=\"3\" stroke-dasharray=\"8 6\"/>\n    <circle cx=\"60\" cy=\"140\" r=\"16\" fill=\"var(--accent)\"/><text x=\"60\" y=\"146\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"700\" style=\"fill:#fff\">A</text><circle cx=\"300\" cy=\"120\" r=\"16\" fill=\"var(--accent)\"/><text x=\"300\" y=\"126\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"700\" style=\"fill:#fff\">B</text><circle cx=\"480\" cy=\"70\" r=\"16\" fill=\"var(--accent)\"/><text x=\"480\" y=\"76\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"700\" style=\"fill:#fff\">C</text>\n    <text x=\"170\" y=\"70\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"700\" >√<tspan style=\"text-decoration:overline\">40</tspan> km</text><text x=\"400\" y=\"70\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"700\" >√<tspan style=\"text-decoration:overline\">10</tspan> km</text>\n    <rect x=\"365\" y=\"128\" width=\"20\" height=\"10\" rx=\"2\" fill=\"var(--fig-blue)\"/><circle cx=\"369\" cy=\"141\" r=\"5\" fill=\"var(--fig-stroke)\"/><circle cx=\"381\" cy=\"141\" r=\"5\" fill=\"var(--fig-stroke)\"/>\n    <text x=\"270\" y=\"180\" text-anchor=\"middle\" font-size=\"14\" style=\"fill:var(--muted)\">Bisiklet rotası: A → B → C</text></svg></div><p class=\"ask\">Bisikletlinin gittiği toplam yol kaç km ile kaç km arasındadır?</p>",
+  "opts": [
+   "7 ile 8",
+   "8 ile 9",
+   "9 ile 10",
+   "10 ile 11"
+  ],
+  "ans": 2,
+  "long": false,
+  "hints": [
+   "<span class=\"kok\">√<span>40</span></span>'ı a<span class=\"kok\">√<span>10</span></span> biçiminde yaz; sonra <span class=\"kok\">√<span>10</span></span>'larla toplama yap."
+  ],
+  "steps": [
+   "<span class=\"kok\">√<span>40</span></span> = <span class=\"kok\">√<span>4 · 10</span></span> = 2<span class=\"kok\">√<span>10</span></span>",
+   "2<span class=\"kok\">√<span>10</span></span> + <span class=\"kok\">√<span>10</span></span> = 3<span class=\"kok\">√<span>10</span></span> = <span class=\"kok\">√<span>9 · 10</span></span> = <span class=\"kok\">√<span>90</span></span>",
+   "81 < 90 < 100 → 9 < <span class=\"kok\">√<span>90</span></span> < 10 → <b>9 ile 10</b> km arası"
+  ],
+  "answer": "Cevap: <b>C</b>",
+  "celdirici": {
+   "0": "Kök içlerini toplamak: <span class=\"kok\">√<span>40</span></span> + <span class=\"kok\">√<span>10</span></span> = <span class=\"kok\">√<span>50</span></span> (7 ile 8 arası). Kök içleri toplanmaz.",
+   "1": "Kökleri aşağı yuvarlayıp (6 ve 3) toplamı olan 9'u üst sınır sanmak.",
+   "3": "Kökleri yukarı yuvarlayıp (7 ve 4) toplamı olan 11'i üst sınır almak."
+  },
+  "trap": ""
+ },
+ {
+  "unite": "Kareköklü İfadeler",
+  "kazanim": "M.8.1.3.7",
+  "kazanimMetni": "Ondalık ifadelerin ve rasyonel sayıların kareköklerini belirler.",
+  "konu": "Ondalık ve rasyonel sayıların karekökü",
+  "zorluk": "Zor",
+  "q": "<p>Bir mozaik panoda eş kare taşlar, şekildeki gibi bir sıra hâlinde boşluksuz olarak dizilmiştir.</p><div class=\"fig\"><svg viewBox=\"0 0 560 170\" width=\"560\" role=\"img\" aria-label=\"Yan yana dizilmiş 12 kare mozaik taşı; bir taşın alanı 0,0081 metrekare\"><rect x=\"20\" y=\"40\" width=\"43\" height=\"43\" fill=\"var(--fig-blue)\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.5\"/><rect x=\"63\" y=\"40\" width=\"43\" height=\"43\" fill=\"var(--fig-yellow)\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.5\"/><rect x=\"106\" y=\"40\" width=\"43\" height=\"43\" fill=\"var(--fig-red)\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.5\"/><rect x=\"149\" y=\"40\" width=\"43\" height=\"43\" fill=\"var(--fig-blue)\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.5\"/><rect x=\"192\" y=\"40\" width=\"43\" height=\"43\" fill=\"var(--fig-yellow)\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.5\"/><rect x=\"235\" y=\"40\" width=\"43\" height=\"43\" fill=\"var(--fig-red)\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.5\"/><rect x=\"278\" y=\"40\" width=\"43\" height=\"43\" fill=\"var(--fig-blue)\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.5\"/><rect x=\"321\" y=\"40\" width=\"43\" height=\"43\" fill=\"var(--fig-yellow)\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.5\"/><rect x=\"364\" y=\"40\" width=\"43\" height=\"43\" fill=\"var(--fig-red)\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.5\"/><rect x=\"407\" y=\"40\" width=\"43\" height=\"43\" fill=\"var(--fig-blue)\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.5\"/><rect x=\"450\" y=\"40\" width=\"43\" height=\"43\" fill=\"var(--fig-yellow)\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.5\"/><rect x=\"493\" y=\"40\" width=\"43\" height=\"43\" fill=\"var(--fig-red)\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.5\"/><line x1=\"41\" y1=\"92\" x2=\"70\" y2=\"125\" stroke=\"var(--muted)\"/><text x=\"110\" y=\"140\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\" >Bir taşın alanı: 0,0081 m²</text><line x1=\"20\" y1=\"22\" x2=\"536\" y2=\"22\" stroke=\"var(--fig-stroke)\" stroke-width=\"2\"/><polygon points=\"536,22 526.8,18.1 526.8,25.9\" fill=\"var(--fig-stroke)\"/><polygon points=\"20,22 29.2,25.9 29.2,18.1\" fill=\"var(--fig-stroke)\"/><text x=\"400\" y=\"140\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\" >12 taş · uzunluk ? cm</text></svg></div><p class=\"ask\">Bu sıranın uzunluğu kaç santimetredir?</p>",
+  "opts": [
+   "1,08",
+   "9,72",
+   "10,8",
+   "108"
+  ],
+  "ans": 3,
+  "long": false,
+  "hints": [
+   "<span class=\"kok\">√<span>0,0081</span></span>: 81'in kökü 9; virgülden sonra kaç basamak olmalı?",
+   "1 m = 100 cm"
+  ],
+  "steps": [
+   "<span class=\"kok\">√<span>0,0081</span></span> = 0,09 (çünkü 0,09 · 0,09 = 0,0081) → bir taşın kenarı 0,09 m",
+   "0,09 m = 9 cm",
+   "12 taş: 12 · 9 = <b>108 cm</b>"
+  ],
+  "answer": "Cevap: <b>D</b>",
+  "celdirici": {
+   "0": "Sonucu metre olarak bırakmak: 12 · 0,09 = 1,08 m.",
+   "1": "Karekök almadan alanı 12 ile çarpmak (0,0972) ve sonucu 100 ile çarpmak.",
+   "2": "<span class=\"kok\">√<span>0,0081</span></span>'i 0,009 sanmak: 12 · 0,009 = 0,108 m = 10,8 cm."
+  },
+  "trap": ""
+ },
+ {
+  "unite": "Kareköklü İfadeler",
+  "kazanim": "M.8.1.3.2",
+  "kazanimMetni": "Tam kare olmayan kareköklü bir ifadenin hangi iki doğal sayı arasında olduğunu belirler.",
+  "konu": "Karekökün yaklaşık değeri",
+  "zorluk": "Çok zor",
+  "q": "<p>Kare şeklindeki bir alanın ortasına, kenarları tam metre olan kare bir havuz yapılacaktır. Havuzun her kenarı ile alanın kenarı arasında <b>en az 1 m</b> genişliğinde yürüme yolu kalmalıdır.</p><div class=\"fig\"><svg viewBox=\"0 0 340 300\" width=\"340\" role=\"img\" aria-label=\"Alanı 200 metrekare olan kare alanın ortasında kare havuz; havuzun her yanında en az 1 metre yol\">\n    <rect x=\"40\" y=\"20\" width=\"240\" height=\"240\" fill=\"#bfe3a6\" stroke=\"var(--fig-stroke)\" stroke-width=\"2.5\"/>\n    <rect x=\"80\" y=\"60\" width=\"160\" height=\"160\" fill=\"var(--fig-blue)\" stroke=\"var(--fig-stroke)\" stroke-width=\"2\"/>\n    <text x=\"160\" y=\"135\" text-anchor=\"middle\" font-size=\"17\" font-weight=\"700\" style=\"fill:#1f2328\">Havuz</text><text x=\"160\" y=\"158\" text-anchor=\"middle\" font-size=\"12\" style=\"fill:#1f2328\">(kenarı tam metre)</text>\n    <line x1=\"40\" y1=\"40\" x2=\"80\" y2=\"40\" stroke=\"var(--fig-stroke)\" stroke-width=\"2\"/><polygon points=\"80,40 70.8,36.1 70.8,43.9\" fill=\"var(--fig-stroke)\"/><polygon points=\"40,40 49.2,43.9 49.2,36.1\" fill=\"var(--fig-stroke)\"/><text x=\"60\" y=\"36\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" >≥1 m</text>\n    <line x1=\"240\" y1=\"240\" x2=\"280\" y2=\"240\" stroke=\"var(--fig-stroke)\" stroke-width=\"2\"/><polygon points=\"280,240 270.8,236.1 270.8,243.9\" fill=\"var(--fig-stroke)\"/><polygon points=\"240,240 249.2,243.9 249.2,236.1\" fill=\"var(--fig-stroke)\"/><text x=\"260\" y=\"255\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" >≥1 m</text>\n    <text x=\"160\" y=\"290\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"700\" >Kare alan: 200 m²</text></svg></div><p class=\"ask\">Havuz olabildiğince büyük yapılırsa, alanın havuz dışında kalan kısmı kaç m<sup>2</sup> olur?</p>",
+  "opts": [
+   "79",
+   "56",
+   "31",
+   "4"
+  ],
+  "ans": 1,
+  "long": false,
+  "hints": [
+   "Alanın kenarı <span class=\"kok\">√<span>200</span></span> m. Havuzun kenarı, bundan iki yandaki yollar kadar kısa olmalı.",
+   "<span class=\"kok\">√<span>200</span></span> hangi iki doğal sayı arasında?"
+  ],
+  "steps": [
+   "Alanın kenarı <span class=\"kok\">√<span>200</span></span>: 196 < 200 < 225 → 14 < <span class=\"kok\">√<span>200</span></span> < 15",
+   "Havuz kenarı ≤ <span class=\"kok\">√<span>200</span></span> − 2 (iki yanda 1'er m) → 12 < <span class=\"kok\">√<span>200</span></span> − 2 < 13 → en fazla 12 m",
+   "Havuz alanı 12² = 144 m²",
+   "Kalan: 200 − 144 = <b>56 m²</b>"
+  ],
+  "answer": "Cevap: <b>B</b>",
+  "celdirici": {
+   "0": "<span class=\"kok\">√<span>200</span></span>'ü 13 alıp 2 çıkarmak: 11² = 121 → 79. <span class=\"kok\">√<span>200</span></span>, 14'ten büyüktür.",
+   "2": "Yolu yalnızca bir tarafta bırakmak: havuz 13 m → 200 − 169 = 31.",
+   "3": "Yürüme yolunu unutmak: havuz 14 m → 200 − 196 = 4."
+  },
+  "trap": "“Her kenarda” 1 m yol, havuzun kenarını <b>2 m</b> kısaltır: bir yanda 1 m, karşı yanda 1 m."
  }
 ];

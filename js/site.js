@@ -21,7 +21,7 @@
   if (A.whatsapp) iletisimDugmeleri.push(`<a class="dugme kucuk" href="${waLink('Merhaba, Emre Hoca LGS Akademi hakkında bilgi almak istiyorum.')}" target="_blank" rel="noopener">WhatsApp'tan yaz</a>`);
   if (A.eposta) iletisimDugmeleri.push(`<a class="dugme kucuk ikincil" href="${mailLink('Emre Hoca LGS Akademi', '')}">E-posta gönder</a>`);
   if (iletisimDugmeleri.length) {
-    $('iletisimMetin').textContent = 'Soru, öneri ve kurum lisansı için bize ulaşın.';
+    $('iletisimMetin').innerHTML = 'Soru, öneri ve kurum lisansı için bize ulaşın.' + (A.telefon ? ` WhatsApp / telefon: <b>${A.telefon}</b>` : '');
     $('iletisimDugmeler').innerHTML = iletisimDugmeleri.join('');
   }
   const yonlendir = (a, metin) => {
@@ -57,16 +57,25 @@
     + `<p style="margin:1rem 0 0"><a class="dugme kucuk ikincil" href="#ornekler" id="vitrinCoz">Bu soruyu çöz →</a></p>`;
   $('vitrinCoz').onclick = () => sec(SORULAR.indexOf(vitrin));
 
-  // Örnek soru çözücü
-  let cur = 0, adim = 0, ipucu = 0;
-  $('sekmeler').innerHTML = SORULAR.map((q, i) => `<button type="button" role="tab" data-i="${i}">${i + 1} · ${q.zorluk}</button>`).join('');
-  $('sekmeler').querySelectorAll('button').forEach(b => b.onclick = () => sec(+b.dataset.i));
+  // Örnek soru çözücü: önce ünite, sonra zorluk sekmesi
+  let cur = 0, adim = 0, ipucu = 0, unite = null;
+  const UNITELER = [...new Set(SORULAR.map(q => q.unite || 'Üslü İfadeler'))];
+  const uniteOf = q => q.unite || 'Üslü İfadeler';
+  function sekmeCiz() {
+    $('uniteler').innerHTML = UNITELER.map(u => `<button type="button" role="tab" data-u="${u}" aria-selected="${u === unite}">${u}</button>`).join('');
+    $('uniteler').querySelectorAll('button').forEach(b => b.onclick = () => sec(SORULAR.findIndex(q => uniteOf(q) === b.dataset.u)));
+    $('sekmeler').innerHTML = SORULAR.map((q, i) => [q, i]).filter(([q]) => uniteOf(q) === unite)
+      .map(([q, i], k) => `<button type="button" role="tab" data-i="${i}">${k + 1} · ${q.zorluk}</button>`).join('');
+    $('sekmeler').querySelectorAll('button').forEach(b => b.onclick = () => sec(+b.dataset.i));
+  }
 
   function sec(i) {
     cur = i; adim = 0; ipucu = 0;
-    $('sekmeler').querySelectorAll('button').forEach(b => b.setAttribute('aria-selected', +b.dataset.i === i));
     const q = SORULAR[i];
-    $('soru').innerHTML = `<div class="qhead"><span class="qno">${i + 1}</span>${etiketler(q)}</div><div class="qtext">${q.q}</div>`
+    if (uniteOf(q) !== unite) { unite = uniteOf(q); sekmeCiz(); }
+    $('sekmeler').querySelectorAll('button').forEach(b => b.setAttribute('aria-selected', +b.dataset.i === i));
+    const sira = SORULAR.filter(x => uniteOf(x) === unite).indexOf(q) + 1;
+    $('soru').innerHTML = `<div class="qhead"><span class="qno">${sira}</span>${etiketler(q)}</div><div class="qtext">${q.q}</div>`
       + `<div class="opts ${q.long ? 'long' : ''}">${q.opts.map((o, j) => `<button type="button" class="opt" data-j="${j}"><b>${HARF[j]})</b>${o}</button>`).join('')}</div>`
       + `<div class="feedback" id="geri" aria-live="polite"></div>`;
     $('soru').querySelectorAll('.opt').forEach(b => b.onclick = () => isaretle(+b.dataset.j, b));
