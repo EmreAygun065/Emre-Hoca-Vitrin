@@ -122,8 +122,8 @@ section.bolum.alt { background: var(--bg-alt); }
 .secim { border: 1px solid var(--line); border-radius: 14px; padding: .8rem 1rem; display: grid; grid-template-columns: 1fr auto; gap: .5rem .8rem; align-items: center; margin-bottom: .7rem; }
 .secim.one-cikan { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
 .secim-bas { grid-column: 1 / -1; }
-.secim-bas b { display: block; font-size: 1.05rem; }
-.secim-bas span { color: var(--muted); font-size: .88rem; }
+.secim-bas b { font-size: 1.05rem; }
+.secim-bas span { color: var(--muted); font-size: .92rem; }
 .paket .secim .fiyat { font-size: 1.2rem; margin: 0; }
 .secim .dugme { white-space: nowrap; text-align: center; }
 .yukselt { font-size: .86rem; color: var(--muted); margin: .3rem 0 0; }
