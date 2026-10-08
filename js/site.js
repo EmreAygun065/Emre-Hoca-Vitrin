@@ -97,7 +97,7 @@
     $('ipuclari').innerHTML = q.hints.slice(0, ipucu).map(h => `<div class="hint">${h}</div>`).join('');
     $('adimlar').innerHTML = q.steps.slice(0, adim).map(s => `<li>${s}</li>`).join('');
     $('sonra').innerHTML = bitti ? `<div class="answer">${q.answer}</div>${q.trap ? `<div class="trap">${q.trap}</div>` : ''}`
-      + `<details class="celdiriciler" open><summary>Çeldirici analizi</summary><ul>${Object.entries(q.celdirici).map(([j, t]) => `<li><b>${HARF[j]})</b> ${q.opts[j]} — ${t}</li>`).join('')}</ul></details>` : '';
+      + `<details class="celdiriciler" open><summary>Çeldirici analizi</summary><ul>${Object.entries(q.celdirici).map(([j, t]) => `<li><b>${HARF[j]})</b> ${/<svg/.test(q.opts[j]) ? "" : q.opts[j] + " — "}${t}</li>`).join('')}</ul></details>` : '';
     $('bos').hidden = !!(adim || ipucu);
     $('ipucuBtn').disabled = ipucu >= q.hints.length;
     $('adimBtn').disabled = bitti;

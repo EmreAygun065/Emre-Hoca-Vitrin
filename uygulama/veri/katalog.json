@@ -23,6 +23,12 @@
   "unite": "cebir",
   "seviye": "tam"
  },
+ "veri": {
+  "ad": "Veri Analizi",
+  "soruSayisi": 400,
+  "unite": "veri",
+  "seviye": "tam"
+ },
  "carpan-yaris": {
   "ad": "Çarpanlar ve Katlar · Yarış",
   "soruSayisi": 60,
@@ -45,6 +51,12 @@
   "ad": "Cebirsel İfadeler ve Özdeşlikler · Yarış",
   "soruSayisi": 64,
   "unite": "cebir",
+  "seviye": "yaris"
+ },
+ "veri-yaris": {
+  "ad": "Veri Analizi · Yarış",
+  "soruSayisi": 72,
+  "unite": "veri",
   "seviye": "yaris"
  }
 }
