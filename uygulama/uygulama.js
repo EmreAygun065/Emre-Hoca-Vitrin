@@ -36,13 +36,41 @@
     return { kimlik, sarma };
   }
 
-  // Kodun açtığı paketlerin anahtarlarını çözer; kod geçersiz ya da iptal edilmişse boş döner.
-  async function koduAc(kod) {
+  // Cihaz sınırı: SUNUCU doluysa kodun anahtar kaydı Emre Hoca'nın Google E-Tablo web uygulamasından alınır
+  // (kod en fazla 3 cihazda açılır; yanıt kayıt sahibinin maskeli e-postasını da taşır). Boşsa veri/kodlar.json kullanılır.
+  const SUNUCU = '';
+  const SAHIP = {};
+  let sonDurum = '';
+  function cihazKimligi() {
+    let c = depo.al('eh-cihaz', '');
+    if (!c) { c = [...crypto.getRandomValues(new Uint8Array(16))].map(b => b.toString(16).padStart(2, '0')).join(''); depo.yaz('eh-cihaz', c); }
+    return c;
+  }
+  // canli: sunucuya sorup yanıtı bekler (yeni kod girişi). Değilse önbellekteki kayıt hemen kullanılır, sunucu arka planda
+  // yoklanır; kod iptal edilmişse ya da sınırı aşmışsa önbellekten silinir ve sonraki açılışta düşer.
+  async function kayitAl(kimlik, canli) {
+    if (!SUNUCU) return DIZIN.kodlar[kimlik] ? { d: 'ok', kayit: DIZIN.kodlar[kimlik] } : { d: 'yok' };
+    const onbellek = depo.al('eh-kayit', {})[kimlik];
+    const sor = async () => {
+      const y = await (await fetch(`${SUNUCU}?k=${kimlik}&c=${cihazKimligi()}`)).json();
+      const t = depo.al('eh-kayit', {});
+      if (y.d === 'ok') t[kimlik] = { kayit: y.kayit, sahip: y.sahip || '' }; else delete t[kimlik];
+      depo.yaz('eh-kayit', t);
+      return y;
+    };
+    if (!canli && onbellek) { sor().catch(() => {}); return { d: 'ok', ...onbellek }; }
+    try { return await sor(); } catch (e) { if (onbellek) return { d: 'ok', ...onbellek }; throw e; }
+  }
+
+  // Kodun açtığı paketlerin anahtarlarını çözer; kod geçersiz, iptal edilmiş ya da cihaz sınırını aşmışsa boş döner.
+  async function koduAc(kod, canli) {
     const { kimlik, sarma } = await turet(kod);
-    const kayit = DIZIN.kodlar[kimlik];
-    if (!kayit) return [];
+    const y = await kayitAl(kimlik, canli);
+    sonDurum = y.d;
+    if (y.d !== 'ok' || !y.kayit) return [];
+    if (y.sahip) SAHIP[normal(kod)] = y.sahip;
     const acilan = [];
-    for (const [p, { iv, k }] of Object.entries(kayit)) {
+    for (const [p, { iv, k }] of Object.entries(y.kayit)) {
       const ham = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(iv) }, sarma, b64(k));
       ANAHTAR[p] = await crypto.subtle.importKey('raw', ham, 'AES-GCM', false, ['decrypt']);
       acilan.push(p);
@@ -62,7 +90,9 @@
   async function oturumAc() {
     [DIZIN, KATALOG] = await Promise.all([getir('kodlar'), getir('katalog')]);
     const kodlar = depo.al('eh-kodlar', []), gecerli = [];
-    for (const k of kodlar) if ((await koduAc(k)).length) gecerli.push(k);
+    for (const k of kodlar) {
+      try { if ((await koduAc(k)).length) gecerli.push(k); } catch (e) { gecerli.push(k); } // bağlantı yoksa kod silinmez
+    }
     if (gecerli.length !== kodlar.length) depo.yaz('eh-kodlar', gecerli);
     return kodlar.length - gecerli.length;
   }
@@ -161,8 +191,13 @@
       btn.disabled = true; btn.textContent = 'Doğrulanıyor…'; hata.textContent = '';
       try {
         if (!DIZIN) await oturumAc();
-        const acilan = await koduAc(n);
-        if (!acilan.length) { hata.textContent = 'Bu kod geçerli değil ya da iptal edilmiş. Lütfen kontrol edip tekrar deneyin.'; return; }
+        const acilan = await koduAc(n, true);
+        if (!acilan.length) {
+          hata.innerHTML = sonDurum === 'limit'
+            ? 'Bu kod izin verilen en fazla cihaz sayısında (3) kullanılıyor. Bu cihazı eklemek için <a href="mailto:emrehocalgsakademi@gmail.com">emrehocalgsakademi@gmail.com</a> adresine yazın.'
+            : 'Bu kod geçerli değil ya da iptal edilmiş. Lütfen kontrol edip tekrar deneyin.';
+          return;
+        }
         const kodlar = depo.al('eh-kodlar', []);
         if (!kodlar.includes(n)) depo.yaz('eh-kodlar', [...kodlar, n]);
         location.hash = '#/';
@@ -195,13 +230,14 @@
       </article>`);
     }
     uyg.innerHTML = `<h1>Paketlerim</h1><p class="alt-baslik">Bir paket seçin: sınav gibi <b>test çözün</b>, ya da soru soru <b>çalışın</b>.</p>
+      ${Object.keys(SAHIP).length ? `<p class="bilgi-not">Bu paketler <b>${kacis([...new Set(Object.values(SAHIP))].join(', '))}</b> adına kayıtlıdır. Erişim kodu kişiye özeldir.</p>` : ''}
       ${dusen ? `<p class="hata">${dusen} kod artık geçerli olmadığı için bu cihazdan kaldırıldı.</p>` : ''}
       <div class="paket-izgara">${kartlar.join('')}</div>
       <p class="bilgi-not"><a href="#/kod">+ Başka bir kod ekle</a> · <a href="#" id="cikis">Kodlarımı bu cihazdan sil</a></p>`;
     document.getElementById('cikis').onclick = e => {
       e.preventDefault();
       if (!confirm('Bu cihazdaki erişim kodlarınız silinecek. İlerlemeniz korunur. Devam edilsin mi?')) return;
-      depo.yaz('eh-kodlar', []); Object.keys(ANAHTAR).forEach(k => delete ANAHTAR[k]);
+      depo.yaz('eh-kodlar', []); depo.yaz('eh-kayit', {}); Object.keys(SAHIP).forEach(k => delete SAHIP[k]); Object.keys(ANAHTAR).forEach(k => delete ANAHTAR[k]);
       location.hash = '#/'; yonlendir();
     };
   }
