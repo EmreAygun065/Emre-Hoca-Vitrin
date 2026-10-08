@@ -38,7 +38,7 @@
 
   // Cihaz sınırı: SUNUCU doluysa kodun anahtar kaydı Emre Hoca'nın Google E-Tablo web uygulamasından alınır
   // (kod en fazla 3 cihazda açılır; yanıt kayıt sahibinin maskeli e-postasını da taşır). Boşsa veri/kodlar.json kullanılır.
-  const SUNUCU = '';
+  const SUNUCU = 'https://script.google.com/macros/s/AKfycbwSfhC65rCuslrw5NW6yuvIrFJIKpVp8xEHQeKEKR9ZiytyhdV1FP9RHx5-5p8CNMJW/exec';
   const SAHIP = {};
   let sonDurum = '';
   function cihazKimligi() {
@@ -59,7 +59,12 @@
       return y;
     };
     if (!canli && onbellek) { sor().catch(() => {}); return { d: 'ok', ...onbellek }; }
-    try { return await sor(); } catch (e) { if (onbellek) return { d: 'ok', ...onbellek }; throw e; }
+    try { return await sor(); } catch (e) {
+      if (onbellek) return { d: 'ok', ...onbellek };
+      // Sunucuya ulaşılamazsa, açık kodlar.json'da kayıt varsa (geçiş dönemi) onunla açılır
+      if (DIZIN.kodlar[kimlik]) return { d: 'ok', kayit: DIZIN.kodlar[kimlik] };
+      throw e;
+    }
   }
 
   // Kodun açtığı paketlerin anahtarlarını çözer; kod geçersiz, iptal edilmiş ya da cihaz sınırını aşmışsa boş döner.
