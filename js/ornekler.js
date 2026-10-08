@@ -1,4 +1,4 @@
-// Vitrindeki ücretsiz örnek sorular: her paketten 4 soru (her zorluktan bir tane).
+// Vitrindeki ücretsiz örnek sorular: her paketten 4–5 soru (her zorluktan en az bir tane).
 // Bu dosya benim-projem deposundaki soru havuzundan üretilir; paketlerin geri kalanı burada yer almaz.
 window.ORNEKLER = [
  {
@@ -430,59 +430,90 @@ window.ORNEKLER = [
  },
  {
   "unite": "Veri Analizi",
-  "kazanim": "M.8.4.1.1",
-  "kazanimMetni": "En fazla üç veri grubuna ait çizgi ve sütun grafiklerini yorumlar.",
-  "konu": "Çizgi ve sütun grafikleri",
+  "kazanim": "M.8.4.1.2",
+  "kazanimMetni": "Verileri sütun, daire veya çizgi grafiği ile gösterir ve bu gösterimler arasında uygun olan dönüşümleri yapar.",
+  "konu": "Grafikler arası dönüşüm",
   "zorluk": "Zor",
-  "q": "<p>Bir okulda yapılan iki deprem tatbikatında sınıfların binayı boşaltma süreleri aşağıdaki sütun grafiğinde verilmiştir.</p><div class=\"fig\"><svg viewBox=\"0 0 460 284\" width=\"460\" role=\"img\" aria-label=\"Sütun grafiği: Sınıfların Tahliye Süreleri\" style=\"max-width:100%;height:auto\"><text x=\"230\" y=\"16\" text-anchor=\"middle\" font-size=\"13\"><tspan font-weight=\"700\">Grafik:</tspan> Sınıfların Tahliye Süreleri</text><text x=\"46\" y=\"250\" text-anchor=\"end\" font-size=\"11.5\">0</text><line x1=\"52\" y1=\"214.3\" x2=\"277.2\" y2=\"214.3\" stroke=\"var(--fig-stroke)\" stroke-opacity=\".18\"/><text x=\"46\" y=\"218.3\" text-anchor=\"end\" font-size=\"11.5\">30</text><line x1=\"52\" y1=\"182.7\" x2=\"277.2\" y2=\"182.7\" stroke=\"var(--fig-stroke)\" stroke-opacity=\".18\"/><text x=\"46\" y=\"186.7\" text-anchor=\"end\" font-size=\"11.5\">60</text><line x1=\"52\" y1=\"151\" x2=\"277.2\" y2=\"151\" stroke=\"var(--fig-stroke)\" stroke-opacity=\".18\"/><text x=\"46\" y=\"155\" text-anchor=\"end\" font-size=\"11.5\">90</text><line x1=\"52\" y1=\"119.3\" x2=\"277.2\" y2=\"119.3\" stroke=\"var(--fig-stroke)\" stroke-opacity=\".18\"/><text x=\"46\" y=\"123.3\" text-anchor=\"end\" font-size=\"11.5\">120</text><line x1=\"52\" y1=\"87.7\" x2=\"277.2\" y2=\"87.7\" stroke=\"var(--fig-stroke)\" stroke-opacity=\".18\"/><text x=\"46\" y=\"91.7\" text-anchor=\"end\" font-size=\"11.5\">150</text><line x1=\"52\" y1=\"56\" x2=\"277.2\" y2=\"56\" stroke=\"var(--fig-stroke)\" stroke-opacity=\".18\"/><text x=\"46\" y=\"60\" text-anchor=\"end\" font-size=\"11.5\">180</text><line x1=\"52\" y1=\"246\" x2=\"52\" y2=\"42\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.6\"/><polygon points=\"52,42 48.9,49.4 55.1,49.4\" fill=\"var(--fig-stroke)\"/><line x1=\"52\" y1=\"246\" x2=\"295.2\" y2=\"246\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.6\"/><polygon points=\"295.2,246 287.8,242.9 287.8,249.1\" fill=\"var(--fig-stroke)\"/><text x=\"48\" y=\"38\" font-size=\"12\">Süre (saniye)</text><text x=\"299.2\" y=\"250\" font-size=\"12\">Sınıflar</text><text x=\"80.2\" y=\"263\" text-anchor=\"middle\" font-size=\"12\">5-A</text><text x=\"136.5\" y=\"263\" text-anchor=\"middle\" font-size=\"12\">6-A</text><text x=\"192.8\" y=\"263\" text-anchor=\"middle\" font-size=\"12\">7-A</text><text x=\"249.1\" y=\"263\" text-anchor=\"middle\" font-size=\"12\">8-A</text><rect class=\"bar\" x=\"60.4\" y=\"87.7\" width=\"19.7\" height=\"158.3\" fill=\"#6cb8ea\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.2\"/><text x=\"70.3\" y=\"83.7\" text-anchor=\"middle\" font-size=\"11.5\">150</text><rect class=\"bar\" x=\"116.7\" y=\"56\" width=\"19.7\" height=\"190\" fill=\"#6cb8ea\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.2\"/><text x=\"126.6\" y=\"52\" text-anchor=\"middle\" font-size=\"11.5\">180</text><rect class=\"bar\" x=\"173\" y=\"103.5\" width=\"19.7\" height=\"142.5\" fill=\"#6cb8ea\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.2\"/><text x=\"182.9\" y=\"99.5\" text-anchor=\"middle\" font-size=\"11.5\">135</text><rect class=\"bar\" x=\"229.3\" y=\"71.8\" width=\"19.7\" height=\"174.2\" fill=\"#6cb8ea\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.2\"/><text x=\"239.2\" y=\"67.8\" text-anchor=\"middle\" font-size=\"11.5\">165</text><rect class=\"bar\" x=\"80.2\" y=\"119.3\" width=\"19.7\" height=\"126.7\" fill=\"#f5a65b\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.2\"/><text x=\"90\" y=\"115.3\" text-anchor=\"middle\" font-size=\"11.5\">120</text><rect class=\"bar\" x=\"136.5\" y=\"98.2\" width=\"19.7\" height=\"147.8\" fill=\"#f5a65b\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.2\"/><text x=\"146.3\" y=\"94.2\" text-anchor=\"middle\" font-size=\"11.5\">140</text><rect class=\"bar\" x=\"192.8\" y=\"114.1\" width=\"19.7\" height=\"131.9\" fill=\"#f5a65b\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.2\"/><text x=\"202.6\" y=\"110.1\" text-anchor=\"middle\" font-size=\"11.5\">125</text><rect class=\"bar\" x=\"249\" y=\"108.8\" width=\"19.7\" height=\"137.2\" fill=\"#f5a65b\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.2\"/><text x=\"258.9\" y=\"104.8\" text-anchor=\"middle\" font-size=\"11.5\">130</text><rect x=\"360\" y=\"56\" width=\"12\" height=\"12\" fill=\"#6cb8ea\" stroke=\"var(--fig-stroke)\"/><text x=\"377\" y=\"66.5\" font-size=\"12\">1. tatbikat</text><rect x=\"360\" y=\"76\" width=\"12\" height=\"12\" fill=\"#f5a65b\" stroke=\"var(--fig-stroke)\"/><text x=\"377\" y=\"86.5\" font-size=\"12\">2. tatbikat</text></svg></div><p>Okulun hedefi, her sınıfın ikinci tatbikatta tahliye süresini birinci tatbikata göre en az %15 kısaltmasıdır.</p><p class=\"ask\">Hedefe ulaşamayan sınıf ya da sınıflar hangileridir?</p>",
+  "q": "<p>Bir okuldaki öğrencilerin okula ulaşım şekillerine göre dağılımı 2024 ve 2025 yılları için aşağıdaki daire grafiklerinde verilmiştir. Okulun öğrenci sayısı 2024'te 600, 2025'te 720'dir.</p><div class=\"fig-sira\" style=\"display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 1.2rem;align-items:flex-start\"><div class=\"fig\" style=\"margin:.4rem 0;flex:0 1 auto;min-width:0\"><svg viewBox=\"0 0 380 266\" width=\"380\" role=\"img\" aria-label=\"Daire grafiği: 2024\" style=\"max-width:100%;height:auto\"><text x=\"190\" y=\"16\" text-anchor=\"middle\" font-size=\"13\"><tspan font-weight=\"700\">Grafik:</tspan> 2024</text><path class=\"dilim\" d=\"M190 144 L190 56 A88 88 0 0 1 266.2 188 Z\" fill=\"#6cb8ea\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><path class=\"dilim\" d=\"M190 144 L266.2 188 A88 88 0 0 1 146 220.2 Z\" fill=\"#f5a65b\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><path class=\"dilim\" d=\"M190 144 L146 220.2 A88 88 0 0 1 113.8 100 Z\" fill=\"#86cf7e\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><path class=\"dilim\" d=\"M190 144 L113.8 100 A88 88 0 0 1 190 56 Z\" fill=\"#ef8fae\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><text x=\"274\" y=\"92.5\" text-anchor=\"start\" font-size=\"12\" font-weight=\"600\">Yürüyerek</text><path d=\"M190 132 A12 12 0 0 1 200.4 150\" fill=\"none\" stroke=\"#1f2328\" stroke-width=\"1.2\"/><text x=\"228.1\" y=\"126\" text-anchor=\"middle\" font-size=\"11.5\" style=\"fill:#1f2328\">120°</text><text x=\"215.1\" y=\"249.7\" text-anchor=\"start\" font-size=\"12\" font-weight=\"600\">Servis</text><path d=\"M197.8 148.5 L193.3 156.3 L185.5 151.8\" fill=\"none\" stroke=\"#1f2328\" stroke-width=\"1.2\"/><text x=\"96.3\" y=\"173.1\" text-anchor=\"end\" font-size=\"12\" font-weight=\"600\">Toplu taşıma</text><path d=\"M185.5 151.8 L177.7 147.3 L182.2 139.5\" fill=\"none\" stroke=\"#1f2328\" stroke-width=\"1.2\"/><text x=\"141.5\" y=\"57\" text-anchor=\"end\" font-size=\"12\" font-weight=\"600\">Özel araç</text><path d=\"M179.6 138 A12 12 0 0 1 190 132\" fill=\"none\" stroke=\"#1f2328\" stroke-width=\"1.2\"/><text x=\"168\" y=\"109.9\" text-anchor=\"middle\" font-size=\"11.5\" style=\"fill:#1f2328\">60°</text></svg></div><div class=\"fig\" style=\"margin:.4rem 0;flex:0 1 auto;min-width:0\"><svg viewBox=\"0 0 380 266\" width=\"380\" role=\"img\" aria-label=\"Daire grafiği: 2025\" style=\"max-width:100%;height:auto\"><text x=\"190\" y=\"16\" text-anchor=\"middle\" font-size=\"13\"><tspan font-weight=\"700\">Grafik:</tspan> 2025</text><path class=\"dilim\" d=\"M190 144 L190 56 A88 88 0 0 1 234 220.2 Z\" fill=\"#6cb8ea\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><path class=\"dilim\" d=\"M190 144 L234 220.2 A88 88 0 0 1 127.8 206.2 Z\" fill=\"#f5a65b\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><path class=\"dilim\" d=\"M190 144 L127.8 206.2 A88 88 0 0 1 127.8 81.8 Z\" fill=\"#86cf7e\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><path class=\"dilim\" d=\"M190 144 L127.8 81.8 A88 88 0 0 1 190 56 Z\" fill=\"#ef8fae\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><text x=\"283.7\" y=\"122.9\" text-anchor=\"start\" font-size=\"12\" font-weight=\"600\">Yürüyerek</text><path d=\"M190 132 A12 12 0 0 1 196 154.4\" fill=\"none\" stroke=\"#1f2328\" stroke-width=\"1.2\"/><text x=\"232.5\" y=\"136.6\" text-anchor=\"middle\" font-size=\"11.5\" style=\"fill:#1f2328\">150°</text><text x=\"177.3\" y=\"252.2\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"600\">Servis</text><path d=\"M196 154.4 A12 12 0 0 1 181.5 152.5\" fill=\"none\" stroke=\"#1f2328\" stroke-width=\"1.2\"/><text x=\"184.3\" y=\"191.6\" text-anchor=\"middle\" font-size=\"11.5\" style=\"fill:#1f2328\">75°</text><text x=\"93\" y=\"148\" text-anchor=\"end\" font-size=\"12\" font-weight=\"600\">Toplu taşıma</text><path d=\"M183.6 150.4 L177.3 144 L183.6 137.6\" fill=\"none\" stroke=\"#1f2328\" stroke-width=\"1.2\"/><text x=\"152.9\" y=\"51.4\" text-anchor=\"end\" font-size=\"12\" font-weight=\"600\">Özel araç</text><path d=\"M181.5 135.5 A12 12 0 0 1 190 132\" fill=\"none\" stroke=\"#1f2328\" stroke-width=\"1.2\"/><text x=\"173.2\" y=\"107.3\" text-anchor=\"middle\" font-size=\"11.5\" style=\"fill:#1f2328\">45°</text></svg></div></div><p class=\"ask\">Hangi ulaşım şeklini kullanan öğrenci sayısı 2025'te azalmıştır?</p>",
   "opts": [
-   "Bütün sınıflar ulaşmıştır.",
-   "5-A ve 7-A",
-   "Yalnız 5-A",
-   "Yalnız 7-A"
+   "Yalnız özel araç",
+   "Servis ve özel araç",
+   "Yalnız servis",
+   "Toplu taşıma ve özel araç"
   ],
-  "ans": 3,
+  "ans": 0,
   "hints": [
-   "Her sınıfın süresindeki kısalmayı birinci tatbikattaki süreye böl."
+   "Açıların küçülmesi, sayının azaldığı anlamına gelmeyebilir."
   ],
   "steps": [
-   "5-A: 30 : 150 = %20, 6-A: 40 : 180 ≈ %22, 7-A: 10 : 135 ≈ %7, 8-A: 35 : 165 ≈ %21",
-   "%15'in altında kalan: <b>yalnız 7-A</b>"
+   "2024: 200, 150, 150, 100 öğrenci",
+   "2025: 300, 150, 180, 90 öğrenci",
+   "Azalan: <b>yalnız özel araç</b> (servis değişmemiştir)"
   ],
-  "answer": "Cevap: <b>D</b>",
+  "answer": "Cevap: <b>A</b>",
   "celdirici": {
-   "0": "7-A'nın kısalma oranını yanlış hesaplamak.",
-   "1": "5-A'nın kısalmasını (30 sn) az görüp yüzdeye çevirmemek.",
-   "2": "Saniye cinsinden en az kısaltan sınıfı aramak yerine en kısa süreye sahip sınıfı almak."
+   "1": "Servisin açısı küçüldüğü için sayısının da azaldığını sanmak.",
+   "2": "Yalnızca açısı küçülen dilimlerden birini seçmek.",
+   "3": "Toplu taşımanın açısı aynı kaldığı için değişmediğini, sayının arttığını gözden kaçırmak."
   },
   "long": true
  },
  {
   "unite": "Veri Analizi",
-  "kazanim": "M.8.4.1.1",
-  "kazanimMetni": "En fazla üç veri grubuna ait çizgi ve sütun grafiklerini yorumlar.",
-  "konu": "Çizgi ve sütun grafikleri",
-  "zorluk": "Çok zor",
-  "q": "<p>Bir akvaryumdaki üç balık türünün aylara göre sayıları aşağıdaki çizgi grafiğinde verilmiştir.</p><div class=\"fig\"><svg viewBox=\"0 0 460 334\" width=\"460\" role=\"img\" aria-label=\"Çizgi grafiği: Akvaryumdaki Balık Sayıları\" style=\"max-width:100%;height:auto\"><text x=\"230\" y=\"16\" text-anchor=\"middle\" font-size=\"13\"><tspan font-weight=\"700\">Grafik:</tspan> Akvaryumdaki Balık Sayıları</text><text x=\"46\" y=\"300\" text-anchor=\"end\" font-size=\"11.5\">0</text><line x1=\"52\" y1=\"261.7\" x2=\"297\" y2=\"261.7\" stroke=\"var(--fig-stroke)\" stroke-opacity=\".18\"/><text x=\"46\" y=\"265.7\" text-anchor=\"end\" font-size=\"11.5\">10</text><line x1=\"52\" y1=\"227.4\" x2=\"297\" y2=\"227.4\" stroke=\"var(--fig-stroke)\" stroke-opacity=\".18\"/><text x=\"46\" y=\"231.4\" text-anchor=\"end\" font-size=\"11.5\">20</text><line x1=\"52\" y1=\"193.1\" x2=\"297\" y2=\"193.1\" stroke=\"var(--fig-stroke)\" stroke-opacity=\".18\"/><text x=\"46\" y=\"197.1\" text-anchor=\"end\" font-size=\"11.5\">30</text><line x1=\"52\" y1=\"158.9\" x2=\"297\" y2=\"158.9\" stroke=\"var(--fig-stroke)\" stroke-opacity=\".18\"/><text x=\"46\" y=\"162.9\" text-anchor=\"end\" font-size=\"11.5\">40</text><line x1=\"52\" y1=\"124.6\" x2=\"297\" y2=\"124.6\" stroke=\"var(--fig-stroke)\" stroke-opacity=\".18\"/><text x=\"46\" y=\"128.6\" text-anchor=\"end\" font-size=\"11.5\">50</text><line x1=\"52\" y1=\"90.3\" x2=\"297\" y2=\"90.3\" stroke=\"var(--fig-stroke)\" stroke-opacity=\".18\"/><text x=\"46\" y=\"94.3\" text-anchor=\"end\" font-size=\"11.5\">60</text><line x1=\"52\" y1=\"56\" x2=\"297\" y2=\"56\" stroke=\"var(--fig-stroke)\" stroke-opacity=\".18\"/><text x=\"46\" y=\"60\" text-anchor=\"end\" font-size=\"11.5\">70</text><line x1=\"52\" y1=\"296\" x2=\"52\" y2=\"42\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.6\"/><polygon points=\"52,42 48.9,49.4 55.1,49.4\" fill=\"var(--fig-stroke)\"/><line x1=\"52\" y1=\"296\" x2=\"315\" y2=\"296\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.6\"/><polygon points=\"315,296 307.6,292.9 307.6,299.1\" fill=\"var(--fig-stroke)\"/><text x=\"48\" y=\"38\" font-size=\"12\">Balık sayısı</text><text x=\"319\" y=\"300\" font-size=\"12\">Aylar</text><text x=\"82.6\" y=\"313\" text-anchor=\"middle\" font-size=\"12\">Ocak</text><text x=\"143.9\" y=\"313\" text-anchor=\"middle\" font-size=\"12\">Şubat</text><text x=\"205.1\" y=\"313\" text-anchor=\"middle\" font-size=\"12\">Mart</text><text x=\"266.4\" y=\"313\" text-anchor=\"middle\" font-size=\"12\">Nisan</text><polyline points=\"82.6,261.7 143.9,254.9 205.1,244.6 266.4,244.6\" fill=\"none\" stroke=\"#2f7fc1\" stroke-width=\"2.4\" /><circle class=\"nokta\" cx=\"82.6\" cy=\"261.7\" r=\"4\" fill=\"#2f7fc1\" stroke=\"var(--fig-stroke)\" stroke-width=\"1\"/><text x=\"82.6\" y=\"253.7\" text-anchor=\"middle\" font-size=\"11.5\">10</text><circle class=\"nokta\" cx=\"143.9\" cy=\"254.9\" r=\"4\" fill=\"#2f7fc1\" stroke=\"var(--fig-stroke)\" stroke-width=\"1\"/><text x=\"143.9\" y=\"246.9\" text-anchor=\"middle\" font-size=\"11.5\">12</text><circle class=\"nokta\" cx=\"205.1\" cy=\"244.6\" r=\"4\" fill=\"#2f7fc1\" stroke=\"var(--fig-stroke)\" stroke-width=\"1\"/><text x=\"205.1\" y=\"236.6\" text-anchor=\"middle\" font-size=\"11.5\">15</text><circle class=\"nokta\" cx=\"266.4\" cy=\"244.6\" r=\"4\" fill=\"#2f7fc1\" stroke=\"var(--fig-stroke)\" stroke-width=\"1\"/><text x=\"266.4\" y=\"236.6\" text-anchor=\"middle\" font-size=\"11.5\">15</text><polyline points=\"82.6,227.4 143.9,176 205.1,124.6 266.4,56\" fill=\"none\" stroke=\"#d9622b\" stroke-width=\"2.4\" stroke-dasharray=\"7 4\"/><circle class=\"nokta\" cx=\"82.6\" cy=\"227.4\" r=\"4\" fill=\"#d9622b\" stroke=\"var(--fig-stroke)\" stroke-width=\"1\"/><text x=\"82.6\" y=\"219.4\" text-anchor=\"middle\" font-size=\"11.5\">20</text><circle class=\"nokta\" cx=\"143.9\" cy=\"176\" r=\"4\" fill=\"#d9622b\" stroke=\"var(--fig-stroke)\" stroke-width=\"1\"/><text x=\"143.9\" y=\"168\" text-anchor=\"middle\" font-size=\"11.5\">35</text><circle class=\"nokta\" cx=\"205.1\" cy=\"124.6\" r=\"4\" fill=\"#d9622b\" stroke=\"var(--fig-stroke)\" stroke-width=\"1\"/><text x=\"205.1\" y=\"116.6\" text-anchor=\"middle\" font-size=\"11.5\">50</text><circle class=\"nokta\" cx=\"266.4\" cy=\"56\" r=\"4\" fill=\"#d9622b\" stroke=\"var(--fig-stroke)\" stroke-width=\"1\"/><text x=\"266.4\" y=\"48\" text-anchor=\"middle\" font-size=\"11.5\">70</text><polyline points=\"82.6,275.4 143.9,275.4 205.1,268.6 266.4,265.1\" fill=\"none\" stroke=\"#3d9a4a\" stroke-width=\"2.4\" stroke-dasharray=\"2 4\"/><circle class=\"nokta\" cx=\"82.6\" cy=\"275.4\" r=\"4\" fill=\"#3d9a4a\" stroke=\"var(--fig-stroke)\" stroke-width=\"1\"/><text x=\"82.6\" y=\"292.4\" text-anchor=\"middle\" font-size=\"11.5\">6</text><circle class=\"nokta\" cx=\"143.9\" cy=\"275.4\" r=\"4\" fill=\"#3d9a4a\" stroke=\"var(--fig-stroke)\" stroke-width=\"1\"/><text x=\"143.9\" y=\"267.4\" text-anchor=\"middle\" font-size=\"11.5\">6</text><circle class=\"nokta\" cx=\"205.1\" cy=\"268.6\" r=\"4\" fill=\"#3d9a4a\" stroke=\"var(--fig-stroke)\" stroke-width=\"1\"/><text x=\"205.1\" y=\"260.6\" text-anchor=\"middle\" font-size=\"11.5\">8</text><circle class=\"nokta\" cx=\"266.4\" cy=\"265.1\" r=\"4\" fill=\"#3d9a4a\" stroke=\"var(--fig-stroke)\" stroke-width=\"1\"/><text x=\"266.4\" y=\"257.1\" text-anchor=\"middle\" font-size=\"11.5\">9</text><line x1=\"360\" y1=\"62\" x2=\"373\" y2=\"62\" stroke=\"#2f7fc1\" stroke-width=\"2.6\" /><text x=\"377\" y=\"66.5\" font-size=\"12\">Japon</text><line x1=\"360\" y1=\"82\" x2=\"373\" y2=\"82\" stroke=\"#d9622b\" stroke-width=\"2.6\" stroke-dasharray=\"7 4\"/><text x=\"377\" y=\"86.5\" font-size=\"12\">Lepistes</text><line x1=\"360\" y1=\"102\" x2=\"373\" y2=\"102\" stroke=\"#3d9a4a\" stroke-width=\"2.6\" stroke-dasharray=\"2 4\"/><text x=\"377\" y=\"106.5\" font-size=\"12\">Melek</text></svg></div><p class=\"ask\">Lepistes sayısının akvaryumdaki toplam balık sayısına oranı ilk kez hangi ayda 2/3'ten fazla olmuştur?</p>",
+  "kazanim": "M.8.4.1.2",
+  "kazanimMetni": "Verileri sütun, daire veya çizgi grafiği ile gösterir ve bu gösterimler arasında uygun olan dönüşümleri yapar.",
+  "konu": "Grafikler arası dönüşüm",
+  "zorluk": "Zor",
+  "q": "<p>Bir meyve bahçesindeki ağaçların türlere göre dağılımı aşağıdaki daire grafiğinde gösterilmiştir. Kiraz ağaçlarının sayısı armut ağaçlarının sayısının 2 katıdır. Bahçede 24 erik ağacı vardır.</p><div class=\"fig\"><svg viewBox=\"0 0 380 266\" width=\"380\" role=\"img\" aria-label=\"Daire grafiği: Ağaçların Türlere Göre Dağılımı\" style=\"max-width:100%;height:auto\"><text x=\"190\" y=\"16\" text-anchor=\"middle\" font-size=\"13\"><tspan font-weight=\"700\">Grafik:</tspan> Ağaçların Türlere Göre Dağılımı</text><path class=\"dilim\" d=\"M190 144 L190 56 A88 88 0 0 1 278 144 Z\" fill=\"#6cb8ea\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><path class=\"dilim\" d=\"M190 144 L278 144 A88 88 0 0 1 220.1 226.7 Z\" fill=\"#f5a65b\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><path class=\"dilim\" d=\"M190 144 L220.1 226.7 A88 88 0 0 1 113.8 100 Z\" fill=\"#86cf7e\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><path class=\"dilim\" d=\"M190 144 L113.8 100 A88 88 0 0 1 190 56 Z\" fill=\"#ef8fae\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><text x=\"258.6\" y=\"72.4\" text-anchor=\"start\" font-size=\"12\" font-weight=\"600\">Elma</text><path d=\"M190 135 L199 135 L199 144\" fill=\"none\" stroke=\"#1f2328\" stroke-width=\"1.2\"/><text x=\"269.5\" y=\"211.6\" text-anchor=\"start\" font-size=\"12\" font-weight=\"600\">Armut</text><text x=\"115.7\" y=\"218.4\" text-anchor=\"end\" font-size=\"12\" font-weight=\"600\">Kiraz</text><text x=\"141.5\" y=\"57\" text-anchor=\"end\" font-size=\"12\" font-weight=\"600\">Erik</text><path d=\"M179.6 138 A12 12 0 0 1 190 132\" fill=\"none\" stroke=\"#1f2328\" stroke-width=\"1.2\"/><text x=\"168\" y=\"109.9\" text-anchor=\"middle\" font-size=\"11.5\" style=\"fill:#1f2328\">60°</text></svg></div><p class=\"ask\">Bahçedeki kiraz ağacı sayısı kaçtır?</p>",
   "opts": [
-   "Mart",
-   "Şubat",
-   "Nisan",
-   "Ocak"
+   "48",
+   "28",
+   "56",
+   "36"
   ],
-  "ans": 0,
+  "ans": 2,
   "hints": [
-   "Lepistes sayısı, diğer balıkların toplamının 2 katından fazla olmalı."
+   "Armut ve kiraz dilimlerinin açıları toplamı 360 − 90 − 60 = 210°dir."
   ],
   "steps": [
-   "Ocak: 20 / 36, Şubat: 35 / 53 (2/3'ten az: 35 · 3 = 105 < 106), Mart: 50 / 73 (150 > 146)",
-   "Cevap: <b>Mart</b>"
+   "Armut x, kiraz 2x → 3x = 210 → x = 70°, kiraz 140°",
+   "Erik 60° → 24 ağaç → 1° = 0,4 ağaç; toplam 144 ağaç",
+   "Kiraz: 140 · 0,4 = <b>56</b>"
   ],
-  "answer": "Cevap: <b>A</b>",
+  "answer": "Cevap: <b>C</b>",
   "celdirici": {
-   "1": "Şubattaki oranı (35/53 ≈ 0,66) 2/3'e eşit ya da fazla sanmak.",
-   "2": "Lepistes sayısının en fazla olduğu ayı seçmek.",
-   "3": "Oranı lepistes : diğerleri olarak karşılaştırmak."
+   "0": "Kiraz açısını 120° almak.",
+   "1": "Armut ağacı sayısını vermek.",
+   "3": "Elma ağacı sayısını vermek."
+  }
+ },
+ {
+  "unite": "Veri Analizi",
+  "kazanim": "M.8.4.1.2",
+  "kazanimMetni": "Verileri sütun, daire veya çizgi grafiği ile gösterir ve bu gösterimler arasında uygun olan dönüşümleri yapar.",
+  "konu": "Grafikler arası dönüşüm",
+  "zorluk": "Çok zor",
+  "q": "<p>Bir kütüphane kafenin müşterileriyle yaptığı memnuniyet anketinin sonuçları aşağıdaki daire grafiğinde gösterilmiştir.</p><div class=\"fig\"><svg viewBox=\"0 0 380 266\" width=\"380\" role=\"img\" aria-label=\"Daire grafiği: Memnuniyet Anketi Sonuçları\" style=\"max-width:100%;height:auto\"><text x=\"190\" y=\"16\" text-anchor=\"middle\" font-size=\"13\"><tspan font-weight=\"700\">Grafik:</tspan> Memnuniyet Anketi Sonuçları</text><path class=\"dilim\" d=\"M190 144 L190 56 A88 88 0 0 1 217.2 227.7 Z\" fill=\"#6cb8ea\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><path class=\"dilim\" d=\"M190 144 L217.2 227.7 A88 88 0 0 1 102 144 Z\" fill=\"#f5a65b\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><path class=\"dilim\" d=\"M190 144 L102 144 A88 88 0 0 1 138.3 72.8 Z\" fill=\"#86cf7e\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><path class=\"dilim\" d=\"M190 144 L138.3 72.8 A88 88 0 0 1 190 56 Z\" fill=\"#ef8fae\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><text x=\"285.8\" y=\"132.8\" text-anchor=\"start\" font-size=\"12\" font-weight=\"600\">Çok memnun</text><path d=\"M190 132 A12 12 0 0 1 193.7 155.4\" fill=\"none\" stroke=\"#1f2328\" stroke-width=\"1.2\"/><text x=\"233.5\" y=\"141.1\" text-anchor=\"middle\" font-size=\"11.5\" style=\"fill:#1f2328\">162°</text><text x=\"133\" y=\"234.5\" text-anchor=\"end\" font-size=\"12\" font-weight=\"600\">Memnun</text><path d=\"M193.7 155.4 A12 12 0 0 1 178 144\" fill=\"none\" stroke=\"#1f2328\" stroke-width=\"1.2\"/><text x=\"164.1\" y=\"183.6\" text-anchor=\"middle\" font-size=\"11.5\" style=\"fill:#1f2328\">108°</text><text x=\"103.6\" y=\"104\" text-anchor=\"end\" font-size=\"12\" font-weight=\"600\">Kararsız</text><path d=\"M178 144 A12 12 0 0 1 182.9 134.3\" fill=\"none\" stroke=\"#1f2328\" stroke-width=\"1.2\"/><text x=\"150.8\" y=\"128\" text-anchor=\"middle\" font-size=\"11.5\" style=\"fill:#1f2328\">54°</text><text x=\"160\" y=\"48.7\" text-anchor=\"end\" font-size=\"12\" font-weight=\"600\">Memnun değil</text><path d=\"M182.9 134.3 A12 12 0 0 1 190 132\" fill=\"none\" stroke=\"#1f2328\" stroke-width=\"1.2\"/><text x=\"171.5\" y=\"91.1\" text-anchor=\"middle\" font-size=\"11.5\" style=\"fill:#1f2328\">36°</text></svg></div><p>Ankete daha sonra 40 kişi daha katılmış ve hepsi “memnun değil” cevabını vermiştir. Son durumda “memnun değil” diyenlerin oranı %20 olmuştur.</p><p class=\"ask\">İlk ankete kaç kişi katılmıştır?</p>",
+  "opts": [
+   "360",
+   "400",
+   "320",
+   "200"
+  ],
+  "ans": 2,
+  "hints": [
+   "İlk ankette “memnun değil” diyenler kaç kişi? (36° = dairenin 1/10'u)"
+  ],
+  "steps": [
+   "İlk katılımcı sayısı N olsun: memnun değil = N/10",
+   "(N/10 + 40) = (N + 40) · 1/5 → N/2 + 200 = N + 40 → N = 320",
+   "Kontrol: (32 + 40) / 360 = %20 → <b>320</b>"
+  ],
+  "answer": "Cevap: <b>C</b>",
+  "celdirici": {
+   "0": "Son durumdaki toplamı vermek.",
+   "1": "Son durumdaki toplam katılımcı sayısını (360) değil, başka bir değeri hesaplamak.",
+   "3": "40 kişiyi toplamın %20'si sanmak."
   }
  },
  {
