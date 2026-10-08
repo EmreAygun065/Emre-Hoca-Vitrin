@@ -463,35 +463,6 @@ window.ORNEKLER = [
   "kazanim": "M.8.4.1.2",
   "kazanimMetni": "Verileri sütun, daire veya çizgi grafiği ile gösterir ve bu gösterimler arasında uygun olan dönüşümleri yapar.",
   "konu": "Grafikler arası dönüşüm",
-  "zorluk": "Zor",
-  "q": "<p>Bir meyve bahçesindeki ağaçların türlere göre dağılımı aşağıdaki daire grafiğinde gösterilmiştir. Kiraz ağaçlarının sayısı armut ağaçlarının sayısının 2 katıdır. Bahçede 24 erik ağacı vardır.</p><div class=\"fig\"><svg viewBox=\"0 0 380 266\" width=\"380\" role=\"img\" aria-label=\"Daire grafiği: Ağaçların Türlere Göre Dağılımı\" style=\"max-width:100%;height:auto\"><text x=\"190\" y=\"16\" text-anchor=\"middle\" font-size=\"13\"><tspan font-weight=\"700\">Grafik:</tspan> Ağaçların Türlere Göre Dağılımı</text><path class=\"dilim\" d=\"M190 144 L190 56 A88 88 0 0 1 278 144 Z\" fill=\"#6cb8ea\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><path class=\"dilim\" d=\"M190 144 L278 144 A88 88 0 0 1 220.1 226.7 Z\" fill=\"#f5a65b\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><path class=\"dilim\" d=\"M190 144 L220.1 226.7 A88 88 0 0 1 113.8 100 Z\" fill=\"#86cf7e\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><path class=\"dilim\" d=\"M190 144 L113.8 100 A88 88 0 0 1 190 56 Z\" fill=\"#ef8fae\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><text x=\"258.6\" y=\"72.4\" text-anchor=\"start\" font-size=\"12\" font-weight=\"600\">Elma</text><path d=\"M190 135 L199 135 L199 144\" fill=\"none\" stroke=\"#1f2328\" stroke-width=\"1.2\"/><text x=\"269.5\" y=\"211.6\" text-anchor=\"start\" font-size=\"12\" font-weight=\"600\">Armut</text><text x=\"115.7\" y=\"218.4\" text-anchor=\"end\" font-size=\"12\" font-weight=\"600\">Kiraz</text><text x=\"141.5\" y=\"57\" text-anchor=\"end\" font-size=\"12\" font-weight=\"600\">Erik</text><path d=\"M179.6 138 A12 12 0 0 1 190 132\" fill=\"none\" stroke=\"#1f2328\" stroke-width=\"1.2\"/><text x=\"168\" y=\"109.9\" text-anchor=\"middle\" font-size=\"11.5\" style=\"fill:#1f2328\">60°</text></svg></div><p class=\"ask\">Bahçedeki kiraz ağacı sayısı kaçtır?</p>",
-  "opts": [
-   "48",
-   "28",
-   "56",
-   "36"
-  ],
-  "ans": 2,
-  "hints": [
-   "Armut ve kiraz dilimlerinin açıları toplamı 360 − 90 − 60 = 210°dir."
-  ],
-  "steps": [
-   "Armut x, kiraz 2x → 3x = 210 → x = 70°, kiraz 140°",
-   "Erik 60° → 24 ağaç → 1° = 0,4 ağaç; toplam 144 ağaç",
-   "Kiraz: 140 · 0,4 = <b>56</b>"
-  ],
-  "answer": "Cevap: <b>C</b>",
-  "celdirici": {
-   "0": "Kiraz açısını 120° almak.",
-   "1": "Armut ağacı sayısını vermek.",
-   "3": "Elma ağacı sayısını vermek."
-  }
- },
- {
-  "unite": "Veri Analizi",
-  "kazanim": "M.8.4.1.2",
-  "kazanimMetni": "Verileri sütun, daire veya çizgi grafiği ile gösterir ve bu gösterimler arasında uygun olan dönüşümleri yapar.",
-  "konu": "Grafikler arası dönüşüm",
   "zorluk": "Çok zor",
   "q": "<p>Bir kütüphane kafenin müşterileriyle yaptığı memnuniyet anketinin sonuçları aşağıdaki daire grafiğinde gösterilmiştir.</p><div class=\"fig\"><svg viewBox=\"0 0 380 266\" width=\"380\" role=\"img\" aria-label=\"Daire grafiği: Memnuniyet Anketi Sonuçları\" style=\"max-width:100%;height:auto\"><text x=\"190\" y=\"16\" text-anchor=\"middle\" font-size=\"13\"><tspan font-weight=\"700\">Grafik:</tspan> Memnuniyet Anketi Sonuçları</text><path class=\"dilim\" d=\"M190 144 L190 56 A88 88 0 0 1 217.2 227.7 Z\" fill=\"#6cb8ea\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><path class=\"dilim\" d=\"M190 144 L217.2 227.7 A88 88 0 0 1 102 144 Z\" fill=\"#f5a65b\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><path class=\"dilim\" d=\"M190 144 L102 144 A88 88 0 0 1 138.3 72.8 Z\" fill=\"#86cf7e\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><path class=\"dilim\" d=\"M190 144 L138.3 72.8 A88 88 0 0 1 190 56 Z\" fill=\"#ef8fae\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><text x=\"285.8\" y=\"132.8\" text-anchor=\"start\" font-size=\"12\" font-weight=\"600\">Çok memnun</text><path d=\"M190 132 A12 12 0 0 1 193.7 155.4\" fill=\"none\" stroke=\"#1f2328\" stroke-width=\"1.2\"/><text x=\"233.5\" y=\"141.1\" text-anchor=\"middle\" font-size=\"11.5\" style=\"fill:#1f2328\">162°</text><text x=\"133\" y=\"234.5\" text-anchor=\"end\" font-size=\"12\" font-weight=\"600\">Memnun</text><path d=\"M193.7 155.4 A12 12 0 0 1 178 144\" fill=\"none\" stroke=\"#1f2328\" stroke-width=\"1.2\"/><text x=\"164.1\" y=\"183.6\" text-anchor=\"middle\" font-size=\"11.5\" style=\"fill:#1f2328\">108°</text><text x=\"103.6\" y=\"104\" text-anchor=\"end\" font-size=\"12\" font-weight=\"600\">Kararsız</text><path d=\"M178 144 A12 12 0 0 1 182.9 134.3\" fill=\"none\" stroke=\"#1f2328\" stroke-width=\"1.2\"/><text x=\"150.8\" y=\"128\" text-anchor=\"middle\" font-size=\"11.5\" style=\"fill:#1f2328\">54°</text><text x=\"160\" y=\"48.7\" text-anchor=\"end\" font-size=\"12\" font-weight=\"600\">Memnun değil</text><path d=\"M182.9 134.3 A12 12 0 0 1 190 132\" fill=\"none\" stroke=\"#1f2328\" stroke-width=\"1.2\"/><text x=\"171.5\" y=\"91.1\" text-anchor=\"middle\" font-size=\"11.5\" style=\"fill:#1f2328\">36°</text></svg></div><p>Ankete daha sonra 40 kişi daha katılmış ve hepsi “memnun değil” cevabını vermiştir. Son durumda “memnun değil” diyenlerin oranı %20 olmuştur.</p><p class=\"ask\">İlk ankete kaç kişi katılmıştır?</p>",
   "opts": [
