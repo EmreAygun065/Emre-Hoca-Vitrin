@@ -118,6 +118,7 @@ section.bolum.alt { background: var(--bg-alt); }
 .paket li { padding: .35rem 0 .35rem 1.7rem; position: relative; border-bottom: 1px dashed var(--line); font-size: .96rem; }
 .paket li::before { content: "✓"; position: absolute; left: .2rem; color: var(--green); font-weight: 800; }
 .paket .fiyat { font-size: 2rem; font-weight: 800; margin: auto 0 .9rem; }
+.paket .fiyat s, .yukselt [data-fiyat] s { font-size: .7em; font-weight: 600; color: var(--muted); margin-right: .2em; }
 .paket .fiyat small { font-size: .9rem; color: var(--muted); font-weight: 600; }
 .secim { border: 1px solid var(--line); border-radius: 14px; padding: .8rem 1rem; display: grid; grid-template-columns: 1fr auto; gap: .5rem .8rem; align-items: center; margin-bottom: .7rem; }
 .secim.one-cikan { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }

@@ -37,7 +37,8 @@
   // Paket fiyatı ve satın alma düğmesi
   document.querySelectorAll('[data-paket]').forEach(kart => {
     const p = (A.paketler || {})[kart.dataset.paket] || {};
-    if (p.fiyat) kart.querySelector('[data-fiyat]').innerHTML = `${p.fiyat} TL <small>· tek seferlik</small>`;
+    if (p.fiyat) kart.querySelector('[data-fiyat]').innerHTML = (p.eski ? `<s>${p.eski} TL</s> ` : '')
+      + `${p.fiyat} TL <small>· ${p.eski ? 'lansmana özel' : 'tek seferlik'}</small>`;
     const dugme = kart.querySelector('[data-satin-al]');
     if (p.shopier) {
       dugme.href = p.shopier; dugme.target = '_blank'; dugme.rel = 'noopener';
