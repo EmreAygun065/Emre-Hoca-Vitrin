@@ -19,5 +19,5 @@ window.AYARLAR = {
   // Sitede yazı olarak görünecek telefon (boşsa gösterilmez).
   telefon: '',
   // İletişim e-postası. Boşsa e-posta düğmesi gizlenir.
-  eposta: ''
+  eposta: 'emrehocalgsakademi@gmail.com'
 };

@@ -150,7 +150,7 @@
         <button class="dugme" type="submit" id="gonder">Kodu doğrula</button>
         <p class="hata" id="hata" role="alert"></p>
       </form>
-      <p class="bilgi-not">Kodunuz satın alma sonrasında size iletilir. Paketleri incelemek için <a href="../#paketler">ana sayfaya</a> göz atın.</p>
+      <p class="bilgi-not">Kodunuz satın alma sonrasında size iletilir. Paketleri incelemek için <a href="../#paketler">ana sayfaya</a> göz atın. Kodunuzla ilgili bir sorun olursa <a href="mailto:emrehocalgsakademi@gmail.com">emrehocalgsakademi@gmail.com</a> adresine yazın.</p>
     </div>`;
     const inp = document.getElementById('kod');
     inp.addEventListener('input', () => { const n = normal(inp.value).slice(0, 10); inp.value = n.length > 6 ? bicimle(n) : n.length > 2 ? `${n.slice(0, 2)}-${n.slice(2)}` : n; });
@@ -191,7 +191,7 @@
         <span class="kucuk-yazi">✓ Erişiminiz var</span><h2>${P.ad}</h2>
         <p class="kucuk-yazi">${o.cozulen} / ${P.sorular.length} soru çözüldü${o.cozulen ? ` · başarı %${o.oran}` : ''}</p>${cubuk(Math.round(o.cozulen / P.sorular.length * 100))}
         <div class="eylemler"><a class="dugme kucuk" href="#/p/${p}/test">Test çöz</a><a class="dugme kucuk ikincil" href="#/p/${p}/calis/tum/0">Çalış</a><a class="dugme kucuk ikincil" href="#/p/${p}/ilerleme">İlerlemem</a></div>
-        ${yaris ? `<p class="bilgi-not">Bu bir <b>Yarış Paketi</b>dir. <a href="../#paketler">Tam Pakete yükseltin</a>: aynı kodla ${(KATALOG[uniteOf(p)] || {}).soruSayisi || 400} sorunun hepsi açılır, ilerlemeniz korunur.</p>` : ''}
+        ${yaris ? `<p class="bilgi-not">Bu bir <b>Yarış Paketi</b>dir. <a href="../#paketler">Tam Pakete yükseltin</a>: size gönderilen Tam Paket kodunu bu cihazda “+ Başka bir kod ekle” ile girin; ${(KATALOG[uniteOf(p)] || {}).soruSayisi || 400} sorunun hepsi açılır, çözdükleriniz korunur.</p>` : ''}
       </article>`);
     }
     uyg.innerHTML = `<h1>Paketlerim</h1><p class="alt-baslik">Bir paket seçin: sınav gibi <b>test çözün</b>, ya da soru soru <b>çalışın</b>.</p>

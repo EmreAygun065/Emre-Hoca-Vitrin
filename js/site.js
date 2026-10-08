@@ -21,10 +21,13 @@
   if (A.whatsapp) iletisimDugmeleri.push(`<a class="dugme kucuk" href="${waLink('Merhaba, Emre Hoca LGS Akademi hakkında bilgi almak istiyorum.')}" target="_blank" rel="noopener">WhatsApp'tan yaz</a>`);
   if (A.eposta) iletisimDugmeleri.push(`<a class="dugme kucuk ikincil" href="${mailLink('Emre Hoca LGS Akademi', '')}">E-posta gönder</a>`);
   if (iletisimDugmeleri.length) {
-    $('iletisimMetin').innerHTML = 'Soru, öneri ve kurum lisansı için bize ulaşın.' + (A.telefon ? ` WhatsApp / telefon: <b>${A.telefon}</b>` : '');
+    $('iletisimMetin').innerHTML = 'Soru, öneri ve kurum lisansı için bize ulaşın.' + (A.eposta ? ` E-posta: <b>${A.eposta}</b>` : '') + (A.telefon ? ` WhatsApp / telefon: <b>${A.telefon}</b>` : '');
     $('iletisimDugmeler').innerHTML = iletisimDugmeleri.join('');
   }
+  // Kurum demo talebi: e-postaya doldurulacak alanlar hazır gelir
+  const DEMO = 'Merhaba Emre Hoca,\n\nKurumumuz için online LGS test sistemi demosu talep ediyorum.\n\nKurum adı:\nŞehir / ilçe:\n8. sınıf öğrenci sayısı:\nYetkili adı soyadı ve görevi:\n\nTeşekkürler.';
   const yonlendir = (a, metin) => {
+    if (metin === 'demo') { if (A.eposta) { a.href = mailLink('Kurum lisansı · Demo talebi', DEMO); } return; }
     const link = waLink(metin) || mailLink('Emre Hoca LGS Akademi', metin);
     if (link) { a.href = link; if (link.startsWith('https')) { a.target = '_blank'; a.rel = 'noopener'; } }
   };

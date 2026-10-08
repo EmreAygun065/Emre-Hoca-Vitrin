@@ -223,3 +223,9 @@ table.grid td.b { background: var(--blue-soft); }
 .cards > span { border: 2px solid var(--fig-stroke); border-radius: 6px; padding: .3rem .8rem; min-width: 3.2rem; text-align: center; }
 @keyframes in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } ol.steps li { animation: none; } .dugme { transition: none; } }
+
+/* Demo notu ve yasal bağlantılar */
+.demo-not { font-size: .9rem; color: var(--muted); margin: .8rem 0 0; overflow-wrap: anywhere; }
+footer .yasal-linkler { flex-basis: 100%; }
+footer .yasal-linkler a { color: var(--muted); }
+#iletisimMetin b { overflow-wrap: anywhere; }
