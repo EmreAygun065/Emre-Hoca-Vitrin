@@ -9,7 +9,7 @@ window.AYARLAR = {
     karekok: { shopier: '', fiyat: '' }, 'karekok-yaris': { shopier: '', fiyat: '' }, 'karekok-yukselt': { shopier: '', fiyat: '' },
     cebir: { shopier: '', fiyat: '' }, 'cebir-yaris': { shopier: '', fiyat: '' }, 'cebir-yukselt': { shopier: '', fiyat: '' },
     veri: { shopier: '', fiyat: '' }, 'veri-yaris': { shopier: '', fiyat: '' }, 'veri-yukselt': { shopier: '', fiyat: '' },
-    // 1. Dönem Paketi: üç ünitenin Tam Paketi
+    // 1. Dönem Paketi: dört ünitenin (çarpan, üslü, karekök, veri) Tam Paketi
     donem1: { shopier: '', fiyat: '' }
   },
 
