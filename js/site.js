@@ -38,7 +38,7 @@
   document.querySelectorAll('[data-paket]').forEach(kart => {
     const p = (A.paketler || {})[kart.dataset.paket] || {};
     if (p.fiyat) kart.querySelector('[data-fiyat]').innerHTML = (p.eski ? `<s>${p.eski} TL</s> ` : '')
-      + `${p.fiyat} TL <small>· ${p.eski ? 'lansmana özel' : 'tek seferlik'}</small>`;
+      + `${p.fiyat} TL <small>· ${p.eski ? 'LANSMANA ÖZEL' : 'tek seferlik'}</small>`;
     const dugme = kart.querySelector('[data-satin-al]');
     if (p.shopier) {
       dugme.href = p.shopier; dugme.target = '_blank'; dugme.rel = 'noopener';
