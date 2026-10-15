@@ -600,5 +600,122 @@ window.ORNEKLER = [
    "1": "Kısa kenarı vermek.",
    "3": "Salonun kenarını vermek."
   }
+ },
+ {
+  "unite": "Basit Olayların Olma Olasılığı",
+  "kazanim": "M.8.5.1.5",
+  "kazanimMetni": "Basit bir olayın olma olasılığını hesaplar.",
+  "konu": "Olasılık hesaplama",
+  "zorluk": "Kolay",
+  "q": "<p>Bir torbada renkleri dışında özdeş 1 yeşil, 7 kırmızı ve 2 sarı top vardır.</p><div class=\"fig\"><svg viewBox=\"0 0 160 160\" width=\"160\" role=\"img\" aria-label=\"Torba: 1 yeşil, 7 kırmızı, 2 sarı\" style=\"max-width:100%;height:auto\"><path d=\"M26 16 Q80 26 134 16 L146 36 Q152 136 80 140 Q8 136 14 36 Z\" fill=\"var(--fig-fill, transparent)\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.6\"/><path d=\"M22 14 Q80 2 138 14\" fill=\"none\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.6\"/><circle cx=\"35\" cy=\"47\" r=\"13\" fill=\"#86cf7e\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.2\"/><circle cx=\"65\" cy=\"47\" r=\"13\" fill=\"#e8706a\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.2\"/><circle cx=\"95\" cy=\"47\" r=\"13\" fill=\"#e8706a\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.2\"/><circle cx=\"125\" cy=\"47\" r=\"13\" fill=\"#e8706a\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.2\"/><circle cx=\"35\" cy=\"77\" r=\"13\" fill=\"#e8706a\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.2\"/><circle cx=\"65\" cy=\"77\" r=\"13\" fill=\"#e8706a\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.2\"/><circle cx=\"95\" cy=\"77\" r=\"13\" fill=\"#e8706a\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.2\"/><circle cx=\"125\" cy=\"77\" r=\"13\" fill=\"#e8706a\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.2\"/><circle cx=\"65\" cy=\"107\" r=\"13\" fill=\"#f7d55c\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.2\"/><circle cx=\"95\" cy=\"107\" r=\"13\" fill=\"#f7d55c\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.2\"/><text x=\"80\" y=\"154\" text-anchor=\"middle\" font-size=\"13\" font-weight=\"700\" style=\"fill:var(--ink)\">Torba</text></svg></div><p class=\"ask\">Torbadan rastgele alınan bir topun kırmızı olma olasılığı kaçtır?</p>",
+  "opts": [
+   "<span class=\"frac\"><span>1</span><span>10</span></span>",
+   "<span class=\"frac\"><span>1</span><span>3</span></span>",
+   "<span class=\"frac\"><span>7</span><span>10</span></span>",
+   "<span class=\"frac\"><span>3</span><span>10</span></span>"
+  ],
+  "ans": 2,
+  "hints": [
+   "Olasılık = istenen durum sayısı / tüm durumların sayısı"
+  ],
+  "steps": [
+   "Toplam: 1 + 7 + 2 = 10",
+   "kırmızı: 7 → <b><span class=\"frac\"><span>7</span><span>10</span></span></b>"
+  ],
+  "answer": "Cevap: <b>C</b>",
+  "celdirici": {
+   "0": "Tek bir nesnenin olasılığını bulmak.",
+   "1": "Renkleri eş olasılıklı sanmak.",
+   "3": "kırmızı olmama olasılığını bulmak."
+  }
+ },
+ {
+  "unite": "Basit Olayların Olma Olasılığı",
+  "kazanim": "M.8.5.1.5",
+  "kazanimMetni": "Basit bir olayın olma olasılığını hesaplar.",
+  "konu": "Olasılık hesaplama",
+  "zorluk": "Orta",
+  "q": "<p>Aşağıdaki çarkın dilimlerinin merkez açıları üzerlerine yazılmıştır.</p><div class=\"fig\"><svg viewBox=\"0 0 240 220\" width=\"220\" role=\"img\" aria-label=\"Çark: 36°, 144°, 180°\" style=\"max-width:100%;height:auto\"><path d=\"M120 118 L120 26 A92 92 0 0 1 174.1 43.6 Z\" fill=\"#e8706a\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><text x=\"140.5\" y=\"60\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\" style=\"fill:#1f2328\">36°</text><path d=\"M120 118 L174.1 43.6 A92 92 0 0 1 120 210 Z\" fill=\"#86cf7e\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><text x=\"172.5\" y=\"140.1\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\" style=\"fill:#1f2328\">144°</text><path d=\"M120 118 L120 210 A92 92 0 0 1 120 26 Z\" fill=\"#6cb8ea\" stroke=\"var(--fig-stroke)\" stroke-width=\"1.4\"/><text x=\"64.8\" y=\"123\" text-anchor=\"middle\" font-size=\"14\" font-weight=\"700\" style=\"fill:#1f2328\">180°</text><circle cx=\"120\" cy=\"118\" r=\"5\" fill=\"var(--fig-stroke)\"/><polygon points=\"111,10 129,10 120,32\" fill=\"var(--fig-stroke)\"/></svg></div><p class=\"ask\">Çark çevrildiğinde ibrenin mavi dilimde durma olasılığı kaçtır?</p>",
+  "opts": [
+   "<span class=\"frac\"><span>1</span><span>10</span></span>",
+   "<span class=\"frac\"><span>1</span><span>2</span></span>",
+   "1",
+   "<span class=\"frac\"><span>1</span><span>3</span></span>"
+  ],
+  "ans": 1,
+  "hints": [
+   "Dilimler eş değilse olasılık = dilimin merkez açısı / 360°"
+  ],
+  "steps": [
+   "mavi: 180°",
+   "Olasılık: <span class=\"frac\"><span>1</span><span>2</span></span> = <b><span class=\"frac\"><span>1</span><span>2</span></span></b>"
+  ],
+  "answer": "Cevap: <b>B</b>",
+  "celdirici": {
+   "0": "Başka bir dilimin olasılığını bulmak.",
+   "2": "Tam açıyı 180° almak.",
+   "3": "Dilimleri eş sanmak."
+  }
+ },
+ {
+  "unite": "Basit Olayların Olma Olasılığı",
+  "kazanim": "M.8.5.1.5",
+  "kazanimMetni": "Basit bir olayın olma olasılığını hesaplar.",
+  "konu": "Olasılık hesaplama",
+  "zorluk": "Zor",
+  "q": "<p>Bir dijital saat, saati ve dakikayı dört rakamla gösterir. Örneğin saat on dört on üç geçe ekranda <b>14:13</b> yazar.</p><p>Bir öğrenci, saat 10:00 ile 15:59 arasındaki (10:00 ve 15:59 dâhil) dakikalardan birinde rastgele saate bakıyor.</p><p class=\"ask\">Öğrencinin baktığı anda ekrandaki dört rakamın soldan sağa ve sağdan sola okunuşunun aynı olma olasılığı kaçtır?</p>",
+  "opts": [
+   "<span class=\"frac\"><span>1</span><span>50</span></span>",
+   "<span class=\"frac\"><span>1</span><span>6</span></span>",
+   "<span class=\"frac\"><span>1</span><span>60</span></span>",
+   "<span class=\"frac\"><span>1</span><span>72</span></span>"
+  ],
+  "ans": 2,
+  "hints": [
+   "10:00 ile 15:59 arasında kaç dakika vardır?",
+   "Saat ab ise dakika ba olmalıdır: 10:01 gibi."
+  ],
+  "steps": [
+   "Toplam dakika: 6 saat · 60 = 360",
+   "Uygun anlar: 10:01, 11:11, 12:21, 13:31, 14:41, 15:51 → 6 an",
+   "Olasılık: 6/360 = <b><span class=\"frac\"><span>1</span><span>60</span></span></b>"
+  ],
+  "answer": "Cevap: <b>C</b>",
+  "celdirici": {
+   "0": "Toplam süreyi 5 saat (300 dakika) almak.",
+   "1": "Her saatte bir uygun an olduğu için 1/6 demek; toplam durum sayısı dakika sayısıdır.",
+   "3": "10:01 anını unutmak."
+  }
+ },
+ {
+  "unite": "Basit Olayların Olma Olasılığı",
+  "kazanim": "M.8.5.1.5",
+  "kazanimMetni": "Basit bir olayın olma olasılığını hesaplar.",
+  "konu": "Olasılık hesaplama",
+  "zorluk": "Çok zor",
+  "q": "<p>\"MATEMATİK\" ve \"OLASILIK\" kelimelerinin her bir harfi ayrı birer özdeş karta yazılıyor. Örneğin \"MATEMATİK\" kelimesi için 9 kart hazırlanıyor.</p><div class=\"cards\"><span>M</span><span>A</span><span>T</span><span>E</span><span>M</span><span>A</span><span>T</span><span>İ</span><span>K</span></div><div class=\"cards\"><span>O</span><span>L</span><span>A</span><span>S</span><span>I</span><span>L</span><span>I</span><span>K</span></div><p>Kartların hepsi bir torbaya atılıp karıştırılıyor ve rastgele bir kart çekiliyor.</p><p class=\"ask\">Çekilen kartta, iki kelimede de bulunan bir harfin yazılı olma olasılığı kaçtır?</p>",
+  "opts": [
+   "<span class=\"frac\"><span>3</span><span>17</span></span>",
+   "<span class=\"frac\"><span>8</span><span>17</span></span>",
+   "<span class=\"frac\"><span>5</span><span>17</span></span>",
+   "<span class=\"frac\"><span>2</span><span>17</span></span>"
+  ],
+  "ans": 2,
+  "hints": [
+   "İki kelimede de bulunan harfleri bul. \"İ\" ile \"I\" farklı harflerdir.",
+   "Bu harflerin yazılı olduğu bütün kartları say."
+  ],
+  "steps": [
+   "Toplam kart: 9 + 8 = 17",
+   "İki kelimede de bulunan harfler: A ve K (\"İ\" ile \"I\" farklıdır)",
+   "A: 2 + 1 = 3 kart · K: 1 + 1 = 2 kart → 5 kart",
+   "Olasılık: <b><span class=\"frac\"><span>5</span><span>17</span></span></b>"
+  ],
+  "answer": "Cevap: <b>C</b>",
+  "celdirici": {
+   "0": "Yalnızca \"MATEMATİK\" kartlarındaki A ve K'leri saymak.",
+   "1": "\"İ\" ve \"I\" harflerini aynı harf sayıp 3 kart daha eklemek.",
+   "3": "Kart sayısı yerine ortak harf çeşidini (A, K) saymak."
+  }
  }
 ];

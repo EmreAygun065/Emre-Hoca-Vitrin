@@ -29,6 +29,12 @@
   "unite": "veri",
   "seviye": "tam"
  },
+ "olasilik": {
+  "ad": "Basit Olayların Olma Olasılığı",
+  "soruSayisi": 400,
+  "unite": "olasilik",
+  "seviye": "tam"
+ },
  "carpan-yaris": {
   "ad": "Çarpanlar ve Katlar · Yarış",
   "soruSayisi": 60,
@@ -57,6 +63,12 @@
   "ad": "Veri Analizi · Yarış",
   "soruSayisi": 72,
   "unite": "veri",
+  "seviye": "yaris"
+ },
+ "olasilik-yaris": {
+  "ad": "Basit Olayların Olma Olasılığı · Yarış",
+  "soruSayisi": 64,
+  "unite": "olasilik",
   "seviye": "yaris"
  }
 }

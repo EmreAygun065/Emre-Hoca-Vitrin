@@ -10,7 +10,8 @@ window.AYARLAR = {
     karekok: { shopier: '', fiyat: '199', eski: '299' }, 'karekok-yaris': { shopier: '', fiyat: '119', eski: '179' }, 'karekok-yukselt': { shopier: '', fiyat: '89', eski: '129' },
     cebir: { shopier: '', fiyat: '199', eski: '299' }, 'cebir-yaris': { shopier: '', fiyat: '119', eski: '179' }, 'cebir-yukselt': { shopier: '', fiyat: '89', eski: '129' },
     veri: { shopier: '', fiyat: '199', eski: '299' }, 'veri-yaris': { shopier: '', fiyat: '119', eski: '179' }, 'veri-yukselt': { shopier: '', fiyat: '89', eski: '129' },
-    // 1. Dönem Paketi: dört ünitenin (çarpan, üslü, karekök, veri) Tam Paketi
+    olasilik: { shopier: '', fiyat: '199', eski: '299' }, 'olasilik-yaris': { shopier: '', fiyat: '119', eski: '179' }, 'olasilik-yukselt': { shopier: '', fiyat: '89', eski: '129' },
+    // 1. Dönem Paketi: beş ünitenin (çarpan, üslü, karekök, veri, olasılık) Tam Paketi · fiyatı Emre Hoca belirleyecek
     donem1: { shopier: '', fiyat: '', eski: '' }
   },
 
